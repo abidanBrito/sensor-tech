@@ -13,15 +13,16 @@
 #include <Adafruit_ADS1015.h>       // ADS library
 
 //// MACRO DEFINITIONS ////
-#define POWER_PIN                   5           // Digital I/O
-#define INPUT_PIN_SALINITY          0           // Input salinity pin
-#define INPUT_PIN_HUMIDITY          1           // Input humidity pin
+#define POWER_PIN_S                 5           // Digital I/O
+#define POWER_PIN_H                 4           // Digital I/O
+#define INPUT_PIN_S                 0           // Input salinity pin
+#define INPUT_PIN_H                 1           // Input humidity pin
 #define SALINITY_NUM_READINGS       10          // Number of salinity readings
 #define HUMIDITY_NUM_READINGS       10          // Number of salinity readings
 #define SALINITY_RANGE_LOW          1450        // Salinity threshold in water (lower bound)
-#define SALINITY_RANGE_HIGH         6250        // Salinity threshold in water (upper bound)
-#define HUMIDITY_RANGE_LOW          1700        // Humidity threshold -> Dry value (lower bound)
-#define HUMIDITY_RANGE_HIGH         400         // Humidity threshold -> Soaked value (upper bound)
+#define SALINITY_RANGE_HIGH         26040       // Salinity threshold in water (upper bound)
+#define HUMIDITY_RANGE_LOW          1550        // Humidity threshold -> Dry value (lower bound)
+#define HUMIDITY_RANGE_HIGH         350         // Humidity threshold -> Soaked value (upper bound)
 #define DEEP_SLEEP_TIME             60000000    // Hibernating time
 
 // Create an ADC object
@@ -39,6 +40,10 @@ void setup() {
 
     // Gain (ADC Range) -> +/- 4.096 V (1 bit = 2 mV)
     ads1115.setGain(GAIN_ONE);
+
+    // Set pins
+    pinMode (POWER_PIN_S, OUTPUT);
+    pinMode (POWER_PIN_H, OUTPUT);
 } // setup()
 
 //----------------------------------------------------------------------
@@ -69,23 +74,20 @@ float readSalinityV2(int numReadings) {
     int sum = 0;
 
     for (int i = 0; i < numReadings; i++) {
-        digitalWrite(POWER_PIN, HIGH);                           //  Supply power to the sensor
-        delay(100);                                              //  Wait for sensor to settle
+        digitalWrite(POWER_PIN_S, HIGH);    // Supply power to the sensor
+        delay(100);                         // Wait for sensor to settle
 
         // Returns '16-bit int' (using ' 32-bit int' to prevent overflow)
-        sum += ads1115.readADC_SingleEnded(INPUT_PIN_SALINITY);  //  Add reading to the running sum
-        digitalWrite(POWER_PIN, LOW);                            //  Turn off power to the sensor
-        delay(10);                                               //  Wait between readings
+        int16_t adc0 = ads1115.readADC_SingleEnded(INPUT_PIN_S);            // Get new reading
+        sum += map(adc0, SALINITY_RANGE_LOW, SALINITY_RANGE_HIGH, 0, 100);  // Add new percentage to the sum
+        digitalWrite(POWER_PIN_S, LOW);                                     // Turn off power to the sensor
+        delay(10);                                                          // Wait between readings
     } // for
 
     // Get average reading value
     averageReading = sum / numReadings;
 
-    // Get percentage
-    salinityPercentage = map(averageReading, SALINITY_RANGE_LOW,
-                                    SALINITY_RANGE_HIGH, 0, 100);
-
-    return salinityPercentage;
+    return averageReading;
 } // readSalinityV2()
 
 //-----------------------------------------------------------------------
@@ -96,20 +98,22 @@ int readHumidity(int numReadings) {
     int sum = 0;
 
     for(int i = 0; i < numReadings; i++) {
+        digitalWrite(POWER_PIN_H, HIGH);    // Supply power to the sensor
+        delay(100);                         // Wait for sensor to settle
+
         // Returns '16-bit int' (using ' 32-bit int' to prevent overflow)
-        int16_t dato = ads1115.readADC_SingleEnded(INPUT_PIN_HUMIDITY);
+        int16_t adc0 = ads1115.readADC_SingleEnded(INPUT_PIN_H);
 
-        sum += 100*HUMIDITY_RANGE_LOW/(HUMIDITY_RANGE_LOW-HUMIDITY_RANGE_HIGH)-dato*100/(HUMIDITY_RANGE_LOW-HUMIDITY_RANGE_HIGH);
+        int dato = map(adc0, HUMIDITY_RANGE_HIGH, HUMIDITY_RANGE_LOW, 100, 0);
+        sum += dato;    // Add reading to the running sum
 
-        delay(10);  //  Wait between readings
+        delay(25);                          // Wait before turning off power
+        digitalWrite(POWER_PIN_H, LOW);     // Turn off power to the sensor
+        delay(25);                          // Wait between readings
     } // for
 
     // Get average reading value
     averageReading = sum / numReadings;
-
-    // Get percentage
-    humidityPercentage = map(averageReading, HUMIDITY_RANGE_LOW,
-                                    HUMIDITY_RANGE_HIGH, 100, 0);
 
     return averageReading;
 } // readHumidity()
