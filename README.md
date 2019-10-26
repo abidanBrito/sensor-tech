@@ -6,4 +6,8 @@ Electronic prototype to monitor and control several environmental magnitudes thr
 
 <img src="/Sprint1/img/softwareArchitecture.png">
 
+## HARDWARE ARCHITECTURE
+
+<img src="/Sprint1/img/hardwareArchitecture.png">
+
 
