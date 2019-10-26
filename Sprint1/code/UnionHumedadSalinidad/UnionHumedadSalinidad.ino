@@ -14,6 +14,7 @@
 // se define el ads1115 en la dirección 0x48
 //
 Adafruit_ADS1115 ads1115(0x48);
+
 //
 // Medimos valor en seco ~0%
 //
@@ -45,34 +46,47 @@ void setup() {
 //-----------------------------------------------------------------------
 int MedirHumedad(){
 
+  int16_t datos[10];
   int16_t adc0;
-  int16_t datos[];
-  int16_t humedad;
-  int16_t sumatorio;
+  float humedad;
+  int sumatorio;
 
 
   //
   // Calcula la media de 10 datos
   //
-  for(i=0; i < 10; i++){
+  for(int i=0; i < 10; i++){
 
-  datos[i] = adc0 = ads1115.readADC_SingleEnded(0);
+  adc0 = ads1115.readADC_SingleEnded(0);
+
+  datos[i] = 100*aire/(aire-agua)-adc0*100/(aire-agua);
 
   sumatorio += datos[i];
 
   delay(50);
 
-  }
+  } // for
 
   humedad = sumatorio / 10;
-
-  humedad = 100*aire/(aire-agua)-adc0*100/(aire-agua);
 
   return(humedad);
 
 } // ()
 
-void MostrarDatos(int16_t humedad, int16_t salinidad){
+//-----------------------------------------------------------------------
+// MedirSalinidad -> R
+//-----------------------------------------------------------------------
+int MedirSalinidad(){
+
+  float salinidad;
+
+  return(salinidad);
+
+} // ()
+
+//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+void MostrarDatos(float humedad, float salinidad){
 
   //
   // Mostramos la medida de humedad
@@ -90,21 +104,12 @@ void MostrarDatos(int16_t humedad, int16_t salinidad){
 
 }
 
-//-----------------------------------------------------------------------
-// MedirSalinidad -> R
-//-----------------------------------------------------------------------
-int MedirSalinidad(){
 
-  int16_t salinidad;
-
-  return(salinidad);
-
-}
 
 void loop() {
 
-  int16_t humedad;
-  int16_t salinidad;
+  float humedad;
+  float salinidad;
   const int segundosDormido = 60;
 
   humedad = MedirHumedad();
@@ -113,6 +118,6 @@ void loop() {
 
   MostrarDatos(humedad, salinidad);
 
-  ESP.deepSleep(segundosDormido * 1000000 * 15);
+  ESP.deepSleep(segundosDormido * 1000000);
 
 } // ()
