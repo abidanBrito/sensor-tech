@@ -21,8 +21,8 @@
 #define HUMIDITY_NUM_READINGS       10          // Number of salinity readings
 #define SALINITY_RANGE_LOW          1450        // Salinity threshold in water (lower bound)
 #define SALINITY_RANGE_HIGH         26040       // Salinity threshold in water (upper bound)
-#define HUMIDITY_RANGE_LOW          1550        // Humidity threshold -> Dry value (lower bound)
-#define HUMIDITY_RANGE_HIGH         350         // Humidity threshold -> Soaked value (upper bound)
+#define HUMIDITY_RANGE_LOW          20475       // Humidity threshold -> Dry value (lower bound)
+#define HUMIDITY_RANGE_HIGH         10115       // Humidity threshold -> Soaked value (upper bound)
 #define DEEP_SLEEP_TIME             60000000    // Hibernating time
 
 // Create an ADC object
