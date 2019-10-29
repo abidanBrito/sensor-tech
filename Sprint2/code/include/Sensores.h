@@ -39,7 +39,7 @@ float readSalinityV2(int powerPin, int inputPin, int lowerBound,
 //-----------------------------------------------------------------------
 // Several humidity readings. Return the average
 //-----------------------------------------------------------------------
-int readHumidity(int powerPin, int inputPin, int lowerBound,
+float readHumidity(int powerPin, int inputPin, int lowerBound,
                                 int upperBound, int numReadings) {
     float averageReading = 0.0;
     int percentageSum = 0;
