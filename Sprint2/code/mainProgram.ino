@@ -50,6 +50,9 @@ void loop() {
     uint lowerBoundSalinity = 1450, upperBoundSalinity = 26040;
     uint lowerBoundHumidity = 20475, upperBoundHumidity = 10115;
 
+    // Number of readings to average out by the sensors
+    uint numReadings = 5;
+
     // Salinity measure
     float meanSalinity = readSalinityV2(powerPinSalinity, inputPinSalinity,
                                         lowerBoundSalinity, upperBoundSalinity,
