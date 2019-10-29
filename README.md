@@ -19,6 +19,6 @@ Electronic prototype to monitor and control several environmental magnitudes thr
 ### WORK IN PROGRESS
 
 * Hibernation.
-* Semiautomatic (user operated) calibration.
+* Semiautomatic calibration (based on user interaction).
 
 
