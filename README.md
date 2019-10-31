@@ -12,10 +12,10 @@ Electronic prototype to **monitor and control several environmental magnitudes**
 
 ### SENSOR TECHNOLOGY
 
-* Humidity sensor.
-* Salinity sensor.
+1. Humidity sensor.
+2. Salinity sensor.
   * Basic implementation via electrical conductivity.
-* Temperature sensor.
+3. Temperature sensor (Testing).
 
 ### WORK IN PROGRESS
 
