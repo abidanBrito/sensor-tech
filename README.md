@@ -14,14 +14,15 @@ Electronic prototype to **monitor and control several environmental magnitudes**
 
 * **Humidity**.
 * **Salinity** (basic implementation via electrical conductivity).
-* **Temperature** (Testing).
 
 ### WORK IN PROGRESS
 
+* **Temperature** sensor (Testing).
 * Hibernation.
-* Semiautomatic calibration (based on user interaction).
 
 ### TO BE DONE (coming soon)
 
 * Automated Testing.
+* Semiautomatic calibration (based on user interaction).
+
 
