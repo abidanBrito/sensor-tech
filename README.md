@@ -1,4 +1,4 @@
-# CDIO - AGRICULTURE SENSOR TECHNOLOGY
+# CDIO PROJECT - ELECTRONIC DEVICE
 
 ![Project_Logo](/Sprint2/img/projectLogo.png)
 
