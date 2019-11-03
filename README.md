@@ -17,7 +17,7 @@ Electronic prototype to **monitor and control several environmental magnitudes**
 
 ### WORK IN PROGRESS
 
-* **Temperature** sensor (Testing).
+* **Temperature** sensor (testing).
 * Hibernation.
 
 ### TO BE DONE (coming soon)
