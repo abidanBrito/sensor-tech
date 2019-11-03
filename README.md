@@ -12,15 +12,15 @@ Electronic prototype to **monitor and control several environmental magnitudes**
 
 ### IMPLEMENTED SENSOR TECHNOLOGY
 
-*  **Humidity**.
-*  **Salinity** (basic implementation via electrical conductivity).
+  * **Humidity**.
+  * **Salinity** (basic implementation via electrical conductivity).
 
 ### WORK IN PROGRESS
 
-*  **Temperature** sensor (testing).
-*  Hibernation.
+  * **Temperature** sensor (testing).
+  * Hibernation.
 
 ### TO BE DONE (coming soon)
 
-*  Automated Testing.
-*  Semiautomatic calibration (based on user interaction).
+  * Automated Testing.
+  * Semiautomatic calibration (based on user interaction).
