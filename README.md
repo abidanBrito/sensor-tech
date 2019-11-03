@@ -5,7 +5,7 @@
 
 ![Project_Logo](/Sprint2/img/projectLogo.png)
 
-Electronic prototype to **monitor and control several environmental magnitudes** through the usage of self-implemented sensors on the Sparkfun ESP8266. This project follows an **agile software development approach** (SCRUM). 
+Electronic prototype to **monitor and control several environmental magnitudes** through the usage of self-implemented sensors on the Sparkfun ESP8266 Thing Dev. This project follows an **agile software development approach** (SCRUM). 
 
 ## SOFTWARE ARCHITECTURE (TO BE UPDATED)
 
@@ -23,7 +23,7 @@ Electronic prototype to **monitor and control several environmental magnitudes**
 ### WORK IN PROGRESS
 
 *   **Temperature** sensor (testing).
-*   Hibernation.
+*   Hibernation (deep sleep mode).
 
 ### TO BE DONE (coming soon)
 
