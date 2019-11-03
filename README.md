@@ -10,7 +10,7 @@ Electronic prototype to **monitor and control several environmental magnitudes**
 
 ![Hardware Architecture Diagram](Sprint1/img/hardwareArchitecture.png)
 
-### SENSOR TECHNOLOGY
+### IMPLEMENTED SENSOR TECHNOLOGY
 
 * **Humidity**.
 * **Salinity** (basic implementation via electrical conductivity).
@@ -21,7 +21,7 @@ Electronic prototype to **monitor and control several environmental magnitudes**
 * Hibernation.
 * Semiautomatic calibration (based on user interaction).
 
-### TO BE DONE (COMING SOON)
+### TO BE DONE (coming soon)
 
 * Automated Testing.
 
