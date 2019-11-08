@@ -3,7 +3,7 @@
 
 # SENSORTECH - ELECTRONICS IN AGRICULTURE
 
-![Project_Logo](/Sprint2/img/projectLogo.png)
+![Project_Logo](/Sprint2/img/projectLogo_v2.png)
 
 Electronic prototype to **monitor and control several environmental magnitudes** through the usage of self-implemented sensors on the Sparkfun ESP8266 Thing Dev.
 
