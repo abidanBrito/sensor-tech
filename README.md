@@ -3,7 +3,7 @@
 
 ![Project_Logo](/Sprint2/img/projectLogo_v2.png)
 
-Electronic prototype to **monitor and control several environmental magnitudes** through the usage of self-implemented sensors.
+Electronic prototype to **monitor several environmental magnitudes** through the usage of self-implemented sensors.
 
 ## TABLE OF CONTENTS
 1. [Motivation](#motivation)
