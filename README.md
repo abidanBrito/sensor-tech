@@ -17,6 +17,11 @@ This is a team effort for our first semester class CDIO. This project follows an
 *   Protoboard.
 *   Resistors.
 
+### Software Development 
+
+*   Arduino IDE (to interact with the ESP8266 board). 
+*   Third-party text editors.
+
 ## SYSTEM DESIGN
 ### Sofware Architecture
 ![Software Architecture Diagram](/Sprint1/img/softwareArchitecture.png)
