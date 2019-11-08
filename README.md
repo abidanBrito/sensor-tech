@@ -11,8 +11,8 @@ This is a team effort for our first semester class CDIO. This project follows an
 ## TECH / FRAMEWORKS USED
 ### Electronic devices and components
 
-*   Sparkfun ESP8266 Thing Dev Board.
-*   Adafruit ADS1115 16-bit ADC.
+*   Sparkfun **ESP8266 Thing Dev** Board.
+*   Adafruit **ADS1115** 16-bit ADC.
 *   Humidity sensor.
 *   Protoboard.
 *   Resistors.
