@@ -18,7 +18,7 @@ This is a team effort for our first semester class CDIO. This project follows an
 *   Resistors.
 
 ## SYSTEM DESIGN
-### Sofware Architecture - Codebase
+### Sofware Architecture
 ![Software Architecture Diagram](/Sprint1/img/softwareArchitecture.png)
 
 ### Hardware Architecture
