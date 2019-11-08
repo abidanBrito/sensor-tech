@@ -54,4 +54,4 @@ It can be found in the form of a PDF file, for each and every Sprint, accordingl
 | Elvira Montagud Hernandis |
 
 ## ACKNOWLEDGEMENTS
-I would like to express my sincere gratitude to my teacher **Mª Asunción Pérez Pascual** (for her invaluable support, feedback and encouragement throughout the development of this project, and to **Universitat Politècnica de València** for providing us with both the knowledge and the tools needed to complete it.
+I would like to express my sincere gratitude to my teacher **Mª Asunción Pérez Pascual** for her invaluable support, feedback and encouragement throughout the development of this project, and to **Universitat Politècnica de València** for providing us with both the knowledge and the tools needed to complete it.
