@@ -48,3 +48,6 @@ It can be found in the form of a PDF file, for each and every Sprint, accordingl
 | Pablo Enguix Llopis       |
 | Luis Belloch Martínez     |
 | Elvira Montagud Hernandis |
+
+## ACKNOLEDGEMENTS
+I would like to express my special thanks of gratitude to my teacher **Mª Asunción Pérez Pascual** (for her invaluable support, feedback and encouragement throughout the development) and to **Universitat Politècnica de València** for providing us with both the knowledge and the tools needed to complete this project.
