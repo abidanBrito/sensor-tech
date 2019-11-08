@@ -6,13 +6,13 @@
 Electronic prototype to **monitor several environmental magnitudes** through the usage of self-implemented sensors.
 
 ## TABLE OF CONTENTS
-1. [Motivation] (#motivation)
-2. [Technologies and Frameworks] (#technologies-and-frameworks)
-3. [System Design] (#system-design)
-4. [Features] (#features)
-5. [Documentation] (#documentation)
-6. [Credits] (#credits)
-7. [Acknowledgements] (#acknowledgements)
+1.  [Motivation](#motivation)
+2.  [Technologies and Frameworks](#technologies-and-frameworks)
+3.  [System Design](#system-design)
+4.  [Features](#features)
+5.  [Documentation](#documentation)
+6.  [Credits](#credits)
+7.  [Acknowledgements](#acknowledgements)
 
 ## MOTIVATION
 This is a team effort for our first semester class CDIO. This project follows an **agile software development approach** (SCRUM).
