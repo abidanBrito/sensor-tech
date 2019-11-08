@@ -6,11 +6,9 @@
 Electronic prototype to **monitor and control several environmental magnitudes** through the usage of self-implemented sensors on the Sparkfun ESP8266 Thing Dev.
 
 ## CONTEXT
-
 This is a team effort for our first semester class CDIO. This project follows an **agile software development approach** (SCRUM).
 
 ## TECH / FRAMEWORKS USED
-
 ### Electronic devices and components
 
 *   Sparkfun ESP8266 Thing Dev Board.
@@ -20,38 +18,30 @@ This is a team effort for our first semester class CDIO. This project follows an
 *   Resistors.
 
 ## SYSTEM DESIGN
-
 ### Sofware Architecture - Codebase
-
 ![Software Architecture Diagram](/Sprint1/img/softwareArchitecture.png)
 
 ### Hardware Architecture
-
 ![Hardware Architecture Diagram](Sprint1/img/hardwareArchitecture.png)
 
 ## FEATURES
 
 ### Implemented 
-
 *   Humidity sensor.
 *   Salinity sensor (basic implementation via electrical conductivity).
 
 ### Work in progress
-
 *   Temperature sensor (testing).
 *   Hibernation (deep sleep mode).
 
 ### To be done (COMING SOON)
-
 *   Automated Testing.
 *   Semiautomatic calibration (based on user interaction).
 
 ## DOCUMENTATION
-
 It can be found in the form of a PDF file, for each and every Sprint, accordingly. Refer to the latest Sprint directory for an [up-to-date documentation](Sprint1/Sprint1_Documentación.pdf).
 
 ## CREDITS
-
 | Author                    |
 |---------------------------| 
 | Abidán Brito Clavijo      |
