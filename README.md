@@ -1,8 +1,6 @@
 [![WIP_Badge](https://img.shields.io/badge/status-work_in_progress-orange.svg)](https://img.shields.io/badge/status-Work_In_Progress-orange.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4cbd2f2216e94ec8a36303c0920299aa)](https://www.codacy.com/manual/abidanBrito/CDIO_Agriculture_Sensors?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abidanBrito/CDIO_Agriculture_Sensors&amp;utm_campaign=Badge_Grade)
 
-# SENSORTECH - ELECTRONICS IN AGRICULTURE
-
 ![Project_Logo](/Sprint2/img/projectLogo_v2.png)
 
 Electronic prototype to **monitor and control several environmental magnitudes** through the usage of self-implemented sensors on the Sparkfun ESP8266 Thing Dev.
