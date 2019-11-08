@@ -5,10 +5,19 @@
 
 Electronic prototype to **monitor and control several environmental magnitudes** through the usage of self-implemented sensors.
 
+## TABLE OF CONTENTS
+1. [Motivation](#motivation)
+2. [Technologies and Frameworks](#technologies-and-frameworks)
+3. [System Design](#system-design)
+4. [Features](#features)
+5. [Documentation](#documentation)
+6. [Credits](#credits)
+7. [Acknowledgements](#acknowledgements)
+
 ## MOTIVATION
 This is a team effort for our first semester class CDIO. This project follows an **agile software development approach** (SCRUM).
 
-## TECH / FRAMEWORKS USED
+## TECHNOLOGIES AND FRAMEWORKS
 ### Electronic devices and components
 *   Sparkfun **ESP8266 Thing Dev** Board.
 *   Adafruit **ADS1115** 16-bit ADC.
@@ -43,9 +52,6 @@ This is a team effort for our first semester class CDIO. This project follows an
 ## DOCUMENTATION
 It can be found in the form of a PDF file, for each and every Sprint, accordingly. Refer to the latest Sprint directory for an [up-to-date documentation](Sprint1/Sprint1_Documentación.pdf).
 
-## ACKNOWLEDGEMENTS
-I would like to express my sincere gratitude to my teacher **Mª Asunción Pérez Pascual** for her invaluable support, feedback and encouragement throughout the development of this project, and to **Universitat Politècnica de València** for providing us with both the knowledge and the tools needed to complete it.
-
 ## CREDITS
 | Author                    |
 |---------------------------| 
@@ -53,3 +59,6 @@ I would like to express my sincere gratitude to my teacher **Mª Asunción Pére
 | Pablo Enguix Llopis       |
 | Luis Belloch Martínez     |
 | Elvira Montagud Hernandis |
+
+## ACKNOWLEDGEMENTS
+I would like to express my sincere gratitude to my teacher **Mª Asunción Pérez Pascual** for her invaluable support, feedback and encouragement throughout the development of this project, and to **Universitat Politècnica de València** for providing us with both the knowledge and the tools needed to complete it.
