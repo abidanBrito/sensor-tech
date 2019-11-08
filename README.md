@@ -23,11 +23,11 @@ This is a team effort for our first semester class CDIO. This project follows an
 
 ## SYSTEM DESIGN
 
-### Sofware Architecture - Codebase (TO BE UPDATED)
+### Sofware Architecture - Codebase
 
 ![Software Architecture Diagram](/Sprint1/img/softwareArchitecture.png)
 
-## Hardware Architecture (TO BE UPDATED)
+### Hardware Architecture
 
 ![Hardware Architecture Diagram](Sprint1/img/hardwareArchitecture.png)
 
@@ -50,7 +50,7 @@ This is a team effort for our first semester class CDIO. This project follows an
 
 ## DOCUMENTATION
 
-It can be found in the form of a PDF file, for each and every Sprint, accordingly. Refer to the latest Sprint directory for an up-to-date documentation.
+It can be found in the form of a PDF file, for each and every Sprint, accordingly. Refer to the latest Sprint directory for an [up-to-date documentation](Sprint1/Sprint1_Documentación.pdf).
 
 ## CREDITS
 
