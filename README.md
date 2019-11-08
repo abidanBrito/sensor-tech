@@ -3,14 +3,13 @@
 
 ![Project_Logo](/Sprint2/img/projectLogo_v2.png)
 
-Electronic prototype to **monitor and control several environmental magnitudes** through the usage of self-implemented sensors on the Sparkfun ESP8266 Thing Dev.
+Electronic prototype to **monitor and control several environmental magnitudes** through the usage of self-implemented sensors.
 
 ## MOTIVATION
 This is a team effort for our first semester class CDIO. This project follows an **agile software development approach** (SCRUM).
 
 ## TECH / FRAMEWORKS USED
 ### Electronic devices and components
-
 *   Sparkfun **ESP8266 Thing Dev** Board.
 *   Adafruit **ADS1115** 16-bit ADC.
 *   Humidity sensor.
@@ -18,7 +17,6 @@ This is a team effort for our first semester class CDIO. This project follows an
 *   Resistors.
 
 ### Software Development 
-
 *   Arduino IDE (to interact with the ESP8266 board). 
 *   Third-party text editors.
 
