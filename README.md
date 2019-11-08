@@ -25,7 +25,6 @@ This is a team effort for our first semester class CDIO. This project follows an
 ![Hardware Architecture Diagram](Sprint1/img/hardwareArchitecture.png)
 
 ## FEATURES
-
 ### Implemented 
 *   Humidity sensor.
 *   Salinity sensor (basic implementation via electrical conductivity).
