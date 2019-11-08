@@ -54,7 +54,9 @@ It can be found in the form of a PDF file, for each and every Sprint, accordingl
 
 ## CREDITS
 
-*   Abidán Brito      -   Design, programming, testing, calibration, schematics, documentation, repository.
-*   Pablo Enguix.     -   Design, programming, testing, calibration, schematics.
-*   Elvira Montagud   -   Design, programming, testing, calibration, schematics.
-*   Luis Belloch.     -   Design, programming, testing, calibration, schematics.
+| Author                    |
+|---------------------------| 
+| Abidán Brito Clavijo      |
+| Pablo Enguix Llopis       |
+| Luis Belloch Martínez     |
+| Elvira Montagud Hernandis |
