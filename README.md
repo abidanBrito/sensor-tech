@@ -33,7 +33,7 @@ This is a team effort for our first semester class CDIO. This project follows an
 *   Temperature sensor (testing).
 *   Hibernation (deep sleep mode).
 
-### To be done (COMING SOON)
+### Coming soon
 *   Automated Testing.
 *   Semiautomatic calibration (based on user interaction).
 
