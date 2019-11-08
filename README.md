@@ -43,6 +43,9 @@ This is a team effort for our first semester class CDIO. This project follows an
 ## DOCUMENTATION
 It can be found in the form of a PDF file, for each and every Sprint, accordingly. Refer to the latest Sprint directory for an [up-to-date documentation](Sprint1/Sprint1_Documentación.pdf).
 
+## ACKNOWLEDGEMENTS
+I would like to express my sincere gratitude to my teacher **Mª Asunción Pérez Pascual** for her invaluable support, feedback and encouragement throughout the development of this project, and to **Universitat Politècnica de València** for providing us with both the knowledge and the tools needed to complete it.
+
 ## CREDITS
 | Author                    |
 |---------------------------| 
@@ -50,6 +53,3 @@ It can be found in the form of a PDF file, for each and every Sprint, accordingl
 | Pablo Enguix Llopis       |
 | Luis Belloch Martínez     |
 | Elvira Montagud Hernandis |
-
-## ACKNOWLEDGEMENTS
-I would like to express my sincere gratitude to my teacher **Mª Asunción Pérez Pascual** for her invaluable support, feedback and encouragement throughout the development of this project, and to **Universitat Politècnica de València** for providing us with both the knowledge and the tools needed to complete it.
