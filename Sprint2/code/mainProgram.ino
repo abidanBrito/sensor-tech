@@ -1,20 +1,21 @@
 /*  ------------------------------------------------------------------------
     AUTHOR:        Abidan Brito, Elvira Montagud, Luis Belloch, Pablo Enguix
-    FILE:          UnionHumedadSalinidad.ino
+    FILE:          mainProgram.ino
     DATE:          29/10/2019
     STATE:         DONE
-    FUNCTIONALITY: Describe what this file is used for.
+    FUNCTIONALITY: This is the main file that is to be executed. It can be
+                   thought of as the center of the codebase.
     ------------------------------------------------------------------------
     NOTICE: (C) Copyright 2019. All rights reserved.
     ------------------------------------------------------------------------ */
 
 //// IMPORT EXTERNAL LIBRARIES ////
-#include <Sensores.h>
-#include <Wire.h>
+#include <Wire.h>                   // I2C communication protocol
+#include <Sensores.h>               // Sensors library
 #include <Adafruit_ADS1015.h>       // ADS library
 
 //// MACRO DEFINITIONS ////
-#define DEEP_SLEEP_TIME             60000000    // Hibernating time
+#define DEEP_SLEEP_TIME     15    // Hibernating time (15 s)
 
 // Create an ADC object
 Adafruit_ADS1115 ads1115(0x48);     // Defined at address '0x48'
@@ -69,9 +70,11 @@ void loop() {
     // Print humidity measure
     printSensorReading(meanHumidity, "Humidity");
 
+    // TODO(abi): convert timer wake up to external wake up (RST).
     // Hibernate for a minute
-    //ESP.deepSleep(DEEP_SLEEP_TIME);
+    ESP.deepSleep(DEEP_SLEEP_TIME * 1000000);
+    //ESP.deepSleep(0); // Wake up when RST receives a LOW signal
 
     // Hold on for a minute
-    delay(1000);
+    //delay(1000);
 } // loop()
