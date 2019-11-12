@@ -24,6 +24,8 @@ This is a team effort for our first semester class CDIO. This project follows an
 *   Humidity sensor.
 *   Protoboard.
 *   Resistors.
+*   Thermistor.
+*   Accelerometer.
 
 ### Software Development 
 *   Arduino IDE (to interact with the ESP8266 board). 
@@ -44,6 +46,7 @@ This is a team effort for our first semester class CDIO. This project follows an
 ### Work in progress
 *   Temperature sensor (testing).
 *   Hibernation (deep sleep mode).
+*   Accelerometer (anti-griefing).
 
 ### Coming soon
 *   Automated Testing.
