@@ -11,14 +11,10 @@
 
 //// IMPORT EXTERNAL LIBRARIES ////
 #include <Wire.h>                   // I2C communication protocol
-#include <Sensores.h>               // Sensors library
-#include <Adafruit_ADS1015.h>       // ADS library
+#include "Sensores.h"               // Sensors library
 
 //// MACRO DEFINITIONS ////
 #define DEEP_SLEEP_TIME     15    // Hibernating time (15 s)
-
-// Create an ADC object
-Adafruit_ADS1115 ads1115(0x48);     // Defined at address '0x48'
 
 //----------------------------------------------------------------------
 // Initial configuration
