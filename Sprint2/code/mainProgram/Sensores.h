@@ -10,6 +10,11 @@
 #ifndef SENSORES_H
 #define SENSORES_H
 
+//// DEPENDENCIES ////
+#include <Adafruit_ADS1015.h>       // ADS library
+
+Adafruit_ADS1115 ads1115(0x48);     // Defined at address '0x48'
+
 //----------------------------------------------------------------------
 // Several salinity readings. Return the average
 //----------------------------------------------------------------------
