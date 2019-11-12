@@ -46,11 +46,11 @@ This is a team effort for our first semester class CDIO. This project follows an
 ### Work in progress
 *   Temperature sensor (testing).
 *   Hibernation (deep sleep mode).
-*   Accelerometer (anti-griefing).
 
 ### Coming soon
 *   Automated Testing.
 *   Semiautomatic calibration (based on user interaction).
+*   Accelerometer (anti-griefing).
 
 ## DOCUMENTATION
 It can be found in the form of a PDF file, for each and every Sprint, accordingly. Refer to the latest Sprint directory for an [up-to-date documentation](Sprint1/Sprint1_Documentación.pdf).
