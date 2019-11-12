@@ -10,8 +10,8 @@
     ------------------------------------------------------------------------ */
 
 //// IMPORT EXTERNAL LIBRARIES ////
-#include <Wire.h>                   // I2C communication protocol
-#include "Sensores.h"               // Sensors library
+#include <Wire.h>                   // I2C communication protocol library
+#include "Sensores.h"               // Analog sensors library
 
 //// MACRO DEFINITIONS ////
 #define DEEP_SLEEP_TIME     15    // Hibernating time (15 s)
@@ -66,11 +66,10 @@ void loop() {
     // Print humidity measure
     printSensorReading(meanHumidity, "Humidity");
 
-    // TODO(abi): convert timer wake up to external wake up (RST).
+    // TODO(abi): wake on motion as well
     // Hibernate for a minute
-    ESP.deepSleep(DEEP_SLEEP_TIME * 1000000);
-    //ESP.deepSleep(0); // Wake up when RST receives a LOW signal
+    //ESP.deepSleep(DEEP_SLEEP_TIME * 1000000);
 
-    // Hold on for a minute
-    //delay(1000);
+    // Hold on for a second
+    delay(1000);
 } // loop()

@@ -13,7 +13,11 @@
 //// DEPENDENCIES ////
 #include <Adafruit_ADS1015.h>       // ADS library
 
+// Create an ADC object
 Adafruit_ADS1115 ads1115(0x48);     // Defined at address '0x48'
+
+//// FUNCTION PROTOTYPES ////
+void safeValues(float * reading);
 
 //----------------------------------------------------------------------
 // Several salinity readings. Return the average
@@ -38,34 +42,40 @@ float readSalinityV2(int powerPin, int inputPin, int lowerBound,
     // Get average reading value
     averageReading = percentageSum / numReadings;
 
+    // Safety net (values within bounds)
+    safeValues(&averageReading);
+
     return averageReading;
 } // readSalinityV2()
 
 //-----------------------------------------------------------------------
 // Several humidity readings. Return the average
 //-----------------------------------------------------------------------
-float readHumidity(int powerPin, int inputPin, int lowerBound,
+float readHumidity(int powerPin, int outputPin, int lowerBound,
                                 int upperBound, int numReadings) {
     float averageReading = 0.0;
     int percentageSum = 0;
 
     for(int i = 0; i < numReadings; i++) {
-        digitalWrite(powerPin, HIGH);    // Supply power to the sensor
+        digitalWrite(powerPin, HIGH);       // Supply power to the sensor
         delay(100);                         // Wait for sensor to settle
 
         // Returns '16-bit int' (using ' 32-bit int' to prevent overflow)
-        int16_t adc0 = ads1115.readADC_SingleEnded(inputPin);
+        int16_t adc0 = ads1115.readADC_SingleEnded(outputPin);
 
         int dato = map(adc0, upperBound, lowerBound, 100, 0);
         percentageSum += dato;    // Add reading to the running sum
 
         delay(25);                          // Wait before turning off power
-        digitalWrite(powerPin, LOW);     // Turn off power to the sensor
+        digitalWrite(powerPin, LOW);        // Turn off power to the sensor
         delay(25);                          // Wait between readings
     } // for
 
     // Get average reading value
     averageReading = percentageSum / numReadings;
+
+    // Safety net (values within bounds)
+    safeValues(&averageReading);
 
     return averageReading;
 } // readHumidity()
@@ -74,16 +84,26 @@ float readHumidity(int powerPin, int inputPin, int lowerBound,
 // Print out received data into the Serial Monitor
 //----------------------------------------------------------------------
 void printSensorReading(float measureValue, char StrLiteral[]) {
-    // Avoid negative values
-    if (measureValue < 0) {
-        measureValue = 0;
-    }
-
     // Print out measure in new range
     Serial.print(StrLiteral);
     Serial.print(" percentage: ");
     Serial.print(measureValue);
     Serial.println(" %");
 } // printSensorReading()
+
+
+//----------------------------------------------------------------------
+// Make sure provided reading doesn't exceed bounds (0 - 100)
+//----------------------------------------------------------------------
+void safeValues(float *reading) {
+    float upperBound = 100.0, lowerBound = 0.0;
+
+    if(*reading > upperBound) {
+        *reading = upperBound;
+    }
+    else if(*reading < lowerBound) {
+        *reading = lowerBound;
+    }
+} // safeValues()
 
 #endif
