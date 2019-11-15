@@ -43,11 +43,11 @@ This is a team effort for our first semester class CDIO. This project follows an
 *   Salinity sensor (basic implementation via electrical conductivity).
 
 ### Work in progress (coming soon)
-- [x] Temperature sensor.
-- [x] Hibernation (deep sleep mode).
-- [ ] Semiautomatic calibration (based on user interaction).
-- [ ] Accelerometer (anti-griefing).
-- [ ] GPS.
+* [x] Temperature sensor.
+* [x] Hibernation (deep sleep mode).
+* [ ] Semiautomatic calibration (based on user interaction).
+* [ ] Accelerometer (anti-griefing).
+* [ ] GPS.
 
 ## DOCUMENTATION
 It can be found in the form of a PDF file, for each and every Sprint, accordingly. Refer to the latest Sprint directory for an [up-to-date documentation](Sprint1/Sprint1_Documentación.pdf).
