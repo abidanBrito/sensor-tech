@@ -80,6 +80,37 @@ float readHumidity(int powerPin, int outputPin, int lowerBound,
     return averageReading;
 } // readHumidity()
 
+//-----------------------------------------------------------------------
+// Several temperature readings. Return the average
+//-----------------------------------------------------------------------
+float readTemperature(int numReadings, int outputPin){
+    float averageReading = 0.0;
+    int16_t sum = 0;
+
+    for(int i = 0; i < numReadings; i++){
+        sum += ads1115.readADC_SingleEnded(outputPin);
+        delay(10);
+    }
+
+    // Get average reading value
+    averageReading = (sum / numReadings);
+
+    // Convert it to (0 - 4.096 V) range
+    averageReading = (float) map(averageReading, 0, 32768, 0, 4096) / 1000;
+
+    // Transform value from voltaje to temperature
+    float temperature;
+    float y_Intercept = 0.786;
+    float slope = 0.0348;
+    float d_Temp = -0.24;
+
+    // Apply formula
+    temperature = ((averageReading - y_Intercept) / slope) + d_Temp;
+
+    return temperature;
+
+} // readTemperature()
+
 //----------------------------------------------------------------------
 // Print out received data into the Serial Monitor
 //----------------------------------------------------------------------

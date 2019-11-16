@@ -41,7 +41,7 @@ void setup() {
 void loop() {
     // Pins declaration & initialization
     uint powerPinSalinity = 5, powerPinHumidity = 4;
-    uint inputPinSalinity = 0, inputPinHumidity = 1;
+    uint outputPinSalinity = 0, outputPinHumidity = 1, outputPinTemperature = 2;
 
     // Calibration bounds declaration & initialization
     uint lowerBoundSalinity = 1450, upperBoundSalinity = 26040;
@@ -51,7 +51,7 @@ void loop() {
     uint numReadings = 5;
 
     // Salinity measure
-    float meanSalinity = readSalinityV2(powerPinSalinity, inputPinSalinity,
+    float meanSalinity = readSalinityV2(powerPinSalinity, outputPinSalinity,
                                         lowerBoundSalinity, upperBoundSalinity,
                                         numReadings);
 
@@ -59,16 +59,22 @@ void loop() {
     printSensorReading(meanSalinity, "Salinity");
 
     // Humidity measure
-    float meanHumidity = readHumidity(powerPinHumidity, inputPinHumidity,
+    float meanHumidity = readHumidity(powerPinHumidity, outputPinHumidity,
                                         lowerBoundHumidity, upperBoundHumidity,
                                         numReadings);
 
     // Print humidity measure
     printSensorReading(meanHumidity, "Humidity");
 
+    // Temperature measure
+    float meanTemperature = readTemperature(numReadings, outputPinTemperature);
+
+    // Print temperature measure
+    printSensorReading(meanTemperature, "Temperature");
+
     // TODO(abi): wake on motion as well
     // Hibernate for a minute
-    //ESP.deepSleep(DEEP_SLEEP_TIME * 1000000);
+    // ESP.deepSleep(DEEP_SLEEP_TIME * 1000000);
 
     // Hold on for a second
     delay(1000);
