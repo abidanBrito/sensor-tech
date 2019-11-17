@@ -34,7 +34,7 @@ float readSalinityV2(int powerPin, int inputPin, int lowerBound,
 
         // Returns '16-bit int' (using ' 32-bit int' to prevent overflow)
         int16_t adc0 = ads1115.readADC_SingleEnded(inputPin);            // Get new reading
-        percentageSum += map(adc0, lowerBound, upperBound, 0, 100);                // Add new percentage to the sum
+        percentageSum += map(adc0, lowerBound, upperBound, 0, 100);      // Add new percentage to the sum
         digitalWrite(powerPin, LOW);                                     // Turn off power to the sensor
         delay(10);                                                       // Wait between readings
     } // for
