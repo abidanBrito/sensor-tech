@@ -32,7 +32,7 @@ This is a team effort for our first semester class CDIO. This project follows an
 
 ## SYSTEM DESIGN
 ### Sofware Architecture
-![Software Architecture Diagram](/Sprint1/img/softwareArchitecture.png)
+![Software Architecture Diagram](/Sprint2/img/softwareArchitecture.png)
 
 ### Hardware Architecture
 ![Hardware Architecture Diagram](Sprint1/img/hardwareArchitecture.png)
