@@ -35,18 +35,19 @@ This is a team effort for our first semester class CDIO. This project follows an
 ![Software Architecture Diagram](/Sprint2/img/softwareArchitecture.png)
 
 ### Hardware Architecture
-![Hardware Architecture Diagram](Sprint1/img/hardwareArchitecture.png)
+![Hardware Architecture Diagram](Sprint2/img/hardwareArchitecture.png)
 
 ## FEATURES
 ### Implemented 
 *   Humidity sensor.
 *   Salinity sensor (basic implementation via electrical conductivity).
+*   Temperature sensor.
+*   Hibernation (deep sleep mode).
 
 ### Work in progress (coming soon)
-*   [x] Temperature sensor.
-*   [x] Hibernation (deep sleep mode).
+*   [x] User identification.
+*   [x] Accelerometer (anti-griefing).
 *   [ ] Semiautomatic calibration (based on user interaction).
-*   [ ] Accelerometer (anti-griefing).
 *   [ ] GPS.
 
 ## DOCUMENTATION
