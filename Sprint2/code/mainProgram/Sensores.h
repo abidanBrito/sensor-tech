@@ -108,7 +108,6 @@ float readTemperature(int numReadings, int outputPin){
     temperature = ((averageReading - y_Intercept) / slope) + d_Temp;
 
     return temperature;
-
 } // readTemperature()
 
 //----------------------------------------------------------------------
@@ -121,7 +120,6 @@ void printSensorReading(float measureValue, char StrLiteral[]) {
     Serial.print(measureValue);
     Serial.println(" %");
 } // printSensorReading()
-
 
 //----------------------------------------------------------------------
 // Make sure provided reading doesn't exceed bounds (0 - 100)
