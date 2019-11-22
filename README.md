@@ -39,15 +39,17 @@ This is a team effort for our first semester class CDIO. This project follows an
 
 ## FEATURES
 ### Implemented 
+*   Salinity sensor (electrical conductivity).
 *   Humidity sensor.
-*   Salinity sensor (basic implementation via electrical conductivity).
 *   Temperature sensor.
 *   Hibernation (deep sleep mode).
 
 ### Work in progress (coming soon)
 *   [x] User identification.
-*   [x] Accelerometer (anti-griefing).
-*   [ ] Semiautomatic calibration (based on user interaction).
+*   [x] Semiautomatic calibration.
+*   [x] Accelerometer.
+*   [x] Light sensor.
+*   [ ] HTTP Server.
 *   [ ] GPS.
 
 ## DOCUMENTATION
