@@ -33,17 +33,20 @@ unsigned int readVoltageLight(int numReadings, int outputPin){
     // Convert it to (0 - 4.096 V) range
     averageReading = (float) map(averageReading, 0, 32768, 0, 4096) / 1000;
 
-    if(averageReading>=0.05){
-    return 0
-    }else if(0.05<averageReading<3.7){
-            if(averageReading<1){
+    if(0 <= averageReading <= 120){
+        return 0;
+    }
+    else if(120 < averageReading <= 3700){
+            if(averageReading < 350){
                 return 1;
-            }else{
+            }
+            else if (averageReading < 1200){
                 return 2;
             }
+            else {
+                return 3;
+            }
     }
-    
-    
 } // readLight()
 
 void loop() {
@@ -53,15 +56,18 @@ void loop() {
     lightState = readVoltageLight(5, 3);
 
     //Print out result
-   if(lightState==0){
+   if(lightState == 0){
     
-    Serial.println("Oscuridad");
+    Serial.println("Está oscuro.");
    }
    
-   else if(lightState==1){
-    Serial.println("Sombra");
-    }else{
-      Serial.println("Soleado");
+   else if(lightState == 1){
+    Serial.println("Está nublado o en sombra.");
+   }
+    else if(lightState==2){
+      Serial.println("Está despejado.");
+   } else {
+    Serial.println("Está soleado.");
    }
 
     delay(1000);
