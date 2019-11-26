@@ -52,7 +52,7 @@ This is a team effort for our first semester class CDIO. This project follows an
 *   Temperature sensor.
 *   Hibernation (deep sleep mode).
 
-### Work in progress / To do
+### Work in progress / To Do
 *   [x] Accelerometer.
 *   [x] Light sensor.
 *   [x] GPS.
