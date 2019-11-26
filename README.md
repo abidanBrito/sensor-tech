@@ -15,7 +15,7 @@ Electronic prototype to **monitor several environmental magnitudes** through the
 7.  [Acknowledgements](#acknowledgements)
 
 ## MOTIVATION
-This is a team effort for our first semester class CDIO. This project follows an **agile software development approach** (SCRUM).
+This is a team effort for our first semester class **CDIO**. This project follows an **agile software development approach** (SCRUM).
 
 ## TECHNOLOGIES AND FRAMEWORKS
 ### Electronic Devices and Components
