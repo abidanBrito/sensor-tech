@@ -44,16 +44,16 @@ This is a team effort for our first semester class CDIO. This project follows an
 *   Temperature sensor.
 *   Hibernation (deep sleep mode).
 
-### Work in progress (coming soon)
-*   [x] User identification.
-*   [x] Semiautomatic calibration.
+### Work in progress / To do
 *   [x] Accelerometer.
 *   [x] Light sensor.
+*   [x] GPS.
 *   [ ] HTTP Server.
-*   [ ] GPS.
+*   [ ] Semiautomatic calibration.
+*   [ ] User identification.
 
 ## DOCUMENTATION
-It can be found in the form of a PDF file, for each and every Sprint, accordingly. Refer to the latest Sprint directory for an [up-to-date documentation](Sprint2/Sprint2_Documentación.pdf).
+It can be found in the form of a PDF file, for each and every Sprint, accordingly. Please, refer to the latest Sprint directory for an [up-to-date documentation](Sprint2/Sprint2_Documentación.pdf). Those of previous Sprints may and do contain errors (schematics, etc.). 
 
 ## CREDITS
 | Author                    |
