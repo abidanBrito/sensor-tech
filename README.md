@@ -21,13 +21,13 @@ This is a team effort for our first semester class **CDIO**. This project follow
 ### Electronic Devices and Components
 *   Sparkfun **ESP8266 Thing Dev** Board.
 *   Adafruit **ADS1115** 16-bit ADC.
-*   **SEN0193** soil moisture sensor.
-*   NTC thermistor.
-*   Photodiode.
+*   DFROBOT **SEN0193** soil moisture sensor.
+*   Lantronix **A2235-H** GPS receiver.
 *   Operational amplifier.
-*   **A2235-H** GPS receiver.
-*   Resistors.
+*   Photodiode.
 *   AND logic gate.
+*   NTC thermistor.
+*   Resistors.
 *   Protoboard.
 
 ### Remote Servers
