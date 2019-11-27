@@ -23,6 +23,7 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   Adafruit **ADS1115** 16-bit ADC.
 *   DFROBOT **SEN0193** soil moisture sensor.
 *   Lantronix **A2235-H** GPS receiver.
+*   InvenSense **MPU-9250** accelerometer.
 *   Operational amplifier.
 *   Photodiode.
 *   AND logic gate.
