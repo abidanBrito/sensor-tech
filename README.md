@@ -21,15 +21,16 @@ This is a team effort for our first semester class **CDIO**. This project follow
 ### Electronic Devices and Components
 *   Sparkfun **ESP8266 Thing Dev** Board.
 *   Adafruit **ADS1115** 16-bit ADC.
-*   DFROBOT **SEN0193** soil moisture sensor.
-*   Lantronix **A2235-H** GPS receiver.
-*   InvenSense **MPU-9250** accelerometer.
+*   DFROBOT **SEN0193** Soil Moisture Sensor.
+*   Lantronix **A2235-H** GPS Receiver.
+*   InvenSense **MPU-9250** Accelerometer.
+*   Adafruit **BMP280** Barometric Pressure & Altitude Sensor.
 *   Operational amplifier.
 *   Photodiode.
 *   AND logic gate.
 *   NTC thermistor.
 *   Resistors.
-*   Protoboard.
+*   Protoboards.  
 
 ### Remote Servers
 *   Dweet. 
@@ -49,15 +50,18 @@ This is a team effort for our first semester class **CDIO**. This project follow
 ## FEATURES
 ### Implemented 
 *   Salinity sensor (electrical conductivity).
-*   Humidity sensor.
+*   Moisture sensor.
 *   Temperature sensor.
-*   Hibernation (deep sleep mode).
+*   Hibernation (Deep Sleep mode).
 
 ### Work in progress / To Do
+*   [x] Barometric pressure and altitute sensor.
+*   [x] Luminosity sensor.
 *   [x] Accelerometer.
-*   [x] Light sensor.
-*   [x] GPS.
-*   [ ] HTTP Server.
+*   [x] GPS receiver.
+*   [ ] HTTP server.
+
+### Might be done (uncertain!)
 *   [ ] Semiautomatic calibration.
 *   [ ] User identification.
 
