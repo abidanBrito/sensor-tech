@@ -59,7 +59,9 @@ This is a team effort for our first semester class **CDIO**. This project follow
 
 ### Work in progress / To Do
 *   [x] Accelerometer.
-*   [ ] HTTP server.
+*   [x] Rain Gauge.
+*   [x] HTTP server.
+*   [ ] PCB Design.
 
 ### Might be done (uncertain!)
 *   [ ] Semiautomatic calibration.
