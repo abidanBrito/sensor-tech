@@ -56,6 +56,7 @@ void loop() {
     float meanTemperature = readTemperature(&adc, NUM_READINGS, OUTPUT_PIN_TEMPERATURE,
                                             Y_INTERCEPT, SLOPE, D_TEMP);
     printTemperature(meanTemperature);
+    Serial.println();
 
     // Light intensity sensor
     unsigned int lightState = readVoltageLight(&adc, OUTPUT_PIN_LUMINOSITY);

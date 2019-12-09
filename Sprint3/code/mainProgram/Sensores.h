@@ -191,17 +191,18 @@ unsigned int readVoltageLight(Adafruit_ADS1115* adc, int outputPin) {
 
 void printLightState (unsigned int lightState) {
     //Print out result
+    Serial.print("Intensidad de luz: ");
     if(lightState == 0) {
-        Serial.println("Está oscuro.");
+        Serial.println("está oscuro.");
     }
     else if(lightState == 1) {
-        Serial.println("Está nublado o en sombra.");
+        Serial.println("está nublado o en sombra.");
     }
     else if(lightState == 2) {
-        Serial.println("Está despejado.");
+        Serial.println("está despejado.");
     }
     else {
-        Serial.println("Está soleado.");
+        Serial.println("está soleado.");
     }
     Serial.println();
 } // lightState()
