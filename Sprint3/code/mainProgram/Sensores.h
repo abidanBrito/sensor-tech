@@ -109,6 +109,17 @@ float readHumidity(Adafruit_ADS1115* adc, int outputPin, int lowerBound,
     return averageReading;
 } // readHumidity()
 
+//----------------------------------------------------------------------
+// Print out received data into the Serial Monitor
+//----------------------------------------------------------------------
+void printSensorReading(float measureValue, char StrLiteral[]) {
+    // Print out measure in new range
+    Serial.print(StrLiteral);
+    Serial.print(" percentage: ");
+    Serial.print(measureValue);
+    Serial.println(" %");
+} // printSensorReading()
+
 //-----------------------------------------------------------------------
 // Several temperature readings. Return the average
 //-----------------------------------------------------------------------
@@ -129,13 +140,13 @@ float readTemperature(Adafruit_ADS1115* adc, int numReadings, int outputPin,
     averageReading = (float) map(averageReading, 0, 32768, 0, 4096) / 1000;
 
     // Transform value from voltaje to temperature
-    float temperature = voltageToTemperature(averageReading, y_Intercept, slope, d_Temp);
+    float temperature = - (voltageToTemperature(averageReading, y_Intercept, slope, d_Temp));
 
     return temperature;
 } // readTemperature()
 
 float voltageToTemperature(float voltage, float y_Intercept, float slope, float d_Temp) {
-    float temperature;
+    float temperature = 0.0f;
 
     // Apply formula
     temperature = ((voltage - y_Intercept) / slope) + d_Temp;
@@ -143,38 +154,33 @@ float voltageToTemperature(float voltage, float y_Intercept, float slope, float 
     return temperature;
 } // voltageToTemperature()
 
-//----------------------------------------------------------------------
-// Print out received data into the Serial Monitor
-//----------------------------------------------------------------------
-void printSensorReading(float measureValue, char StrLiteral[]) {
-    // Print out measure in new range
-    Serial.print(StrLiteral);
-    Serial.print(" percentage: ");
-    Serial.print(measureValue);
-    Serial.println(" %");
-} // printSensorReading()
+void printTemperature(float temperature) {
+    Serial.print("Temperature = ");
+    Serial.print(temperature);
+    Serial.println(" (ºC)");
+} // printTemperature()
 
 unsigned int readVoltageLight(Adafruit_ADS1115* adc, int outputPin) {
     int16_t reading = 0;
-    float voltage = 0.0f;
+    unsigned int voltage = 0;
 
     reading = (*adc).readADC_SingleEnded(outputPin);
 
     // Convert it to (0 - 4.096 V) range
-    voltage = (float) map(reading, 0, 32768, 0, 4096);
+    voltage = map(reading, 0, 32768, 0, 4096);
 
     Serial.print("Voltage: ");
     Serial.print(voltage);
-    Serial.println(" mV");
+    Serial.println(" (mV)");
 
-    if(0 <= voltage <= 120) {
+    if(voltage <= 30) {
         return 0;
     }
-    else if (120 < voltage <= 3700) {
-        if(voltage < 350) {
+    else if (voltage <= 3700) {
+        if(voltage <= 150) {
             return 1;
         }
-        else if (voltage < 1200) {
+        else if (voltage < 1500) {
             return 2;
         }
         else {
@@ -197,6 +203,7 @@ void printLightState (unsigned int lightState) {
     else {
         Serial.println("Está soleado.");
     }
+    Serial.println();
 } // lightState()
 
 void bmp280_setup(Adafruit_BMP280* bmp) {

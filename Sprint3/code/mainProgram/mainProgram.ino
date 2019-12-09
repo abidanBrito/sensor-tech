@@ -50,11 +50,12 @@ void loop() {
     float meanHumidity = readHumidity(&adc, OUTPUT_PIN_HUMIDITY, LOWER_BOUND_HUMIDITY,
                                       UPPER_BOUND_HUMIDITY, NUM_READINGS);
     printSensorReading(meanHumidity, "Humidity");
+    Serial.println();
 
     // Temperature measure
     float meanTemperature = readTemperature(&adc, NUM_READINGS, OUTPUT_PIN_TEMPERATURE,
                                             Y_INTERCEPT, SLOPE, D_TEMP);
-    printSensorReading(meanTemperature, "Temperature");
+    printTemperature(meanTemperature);
 
     // Light intensity sensor
     unsigned int lightState = readVoltageLight(&adc, OUTPUT_PIN_LUMINOSITY);
