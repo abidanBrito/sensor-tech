@@ -53,10 +53,8 @@ void loop() {
 
     //Print out result
     if(lightState == 0) {
-
         Serial.println("Está oscuro.");
     }
-
     else if(lightState == 1) {
         Serial.println("Está nublado o en sombra.");
     }
