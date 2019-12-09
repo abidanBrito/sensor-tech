@@ -83,13 +83,12 @@ float readSalinityV2(Adafruit_ADS1115* adc, int powerPin, int inputPin,
 //-----------------------------------------------------------------------
 // Several humidity readings. Return the average
 //-----------------------------------------------------------------------
-float readHumidity(Adafruit_ADS1115* adc, int powerPin, int outputPin,
-                   int lowerBound, int upperBound, int numReadings) {
+float readHumidity(Adafruit_ADS1115* adc, int outputPin, int lowerBound,
+                   int upperBound, int numReadings) {
     float averageReading = 0.0f;
     int percentageSum = 0;
 
     for(int i = 0; i < numReadings; i++) {
-        digitalWrite(powerPin, HIGH);       // Supply power to the sensor
         delay(100);                         // Wait for sensor to settle
 
         // Get new reading
@@ -98,8 +97,6 @@ float readHumidity(Adafruit_ADS1115* adc, int powerPin, int outputPin,
         int percentage = map(reading, upperBound, lowerBound, 100, 0);
         percentageSum += percentage;    // Add current percentage to the sum
 
-        delay(25);                          // Wait before turning off power
-        digitalWrite(powerPin, LOW);        // Turn off power to the sensor
         delay(25);                          // Wait between readings
     } // for
 

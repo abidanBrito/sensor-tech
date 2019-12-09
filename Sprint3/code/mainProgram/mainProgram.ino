@@ -47,8 +47,8 @@ void loop() {
     printSensorReading(meanSalinity, "Salinity");
 
     // Humidity measure
-    float meanHumidity = readHumidity(&adc, POWER_PIN_HUMIDITY, OUTPUT_PIN_HUMIDITY,
-                                      LOWER_BOUND_HUMIDITY, UPPER_BOUND_HUMIDITY, NUM_READINGS);
+    float meanHumidity = readHumidity(&adc, OUTPUT_PIN_HUMIDITY, LOWER_BOUND_HUMIDITY,
+                                      UPPER_BOUND_HUMIDITY, NUM_READINGS);
     printSensorReading(meanHumidity, "Humidity");
 
     // Temperature measure
