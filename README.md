@@ -53,12 +53,12 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   Moisture sensor.
 *   Temperature sensor.
 *   Hibernation (Deep Sleep mode).
+*   Barometric pressure and altitute sensor.
+*   Luminosity sensor.
+*   GPS receiver.
 
 ### Work in progress / To Do
-*   [x] Barometric pressure and altitute sensor.
-*   [x] Luminosity sensor.
 *   [x] Accelerometer.
-*   [x] GPS receiver.
 *   [ ] HTTP server.
 
 ### Might be done (uncertain!)
