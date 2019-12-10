@@ -9,7 +9,7 @@
     NOTICE: (C) Copyright 2019. All rights reserved.
     ------------------------------------------------------------------------ */
 
-//// IMPORT EXTERNAL LIBRARIES ////
+//// IMPORT INTERNAL LIBRARIES ////
 #include "System_Configuration.h"  // System configuration
 #include "Interruptions.h"         // Wake on motion & Deep Sleep
 #include "Sensors.h"               // Analog and digital sensors
