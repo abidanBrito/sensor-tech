@@ -48,9 +48,9 @@
 //// FUNCTION PROTOTYPES ////
 void ICACHE_RAM_ATTR handleInterruption();  // Store in RAM
 
-void I2Cread(uint8_t accAddress, uint8_t Register, uint8_t numBytes, uint8_t *Data) {
+void I2Cread(uint8_t accAddress, uint8_t memRegister, uint8_t numBytes, uint8_t *Data) {
    Wire.beginTransmission(accAddress);
-   Wire.write(register);
+   Wire.write(memRegister);
    Wire.endTransmission();
 
    Wire.requestFrom(accAddress, numBytes);
@@ -60,9 +60,9 @@ void I2Cread(uint8_t accAddress, uint8_t Register, uint8_t numBytes, uint8_t *Da
    }
 } // I2Cread()
 
-void I2CwriteByte(uint8_t accAddress, uint8_t register, uint8_t Data) {
+void I2CwriteByte(uint8_t accAddress, uint8_t memRegister, uint8_t Data) {
    Wire.beginTransmission(accAddress);
-   Wire.write(register);
+   Wire.write(memRegister);
    Wire.write(Data);
    Wire.endTransmission();
 } // I2CwriteByte()
