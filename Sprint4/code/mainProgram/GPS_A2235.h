@@ -1,9 +1,10 @@
 /*  ------------------------------------------------------------------------
     AUTHOR:         Abidan Brito Clavijo
     FILE:           GPS_A2235.h
-    DATE:           05/11/2019
+    DATE:           10/12/2019
     STATE:          DONE
-    FUNCTIONALITY:  Describe what this file is used for.
+    FUNCTIONALITY:  Internal library to set up and read NMEA messages from
+                    the A2235-H GPS receiver.
     ------------------------------------------------------------------------
     NOTICE: (C) Copyright 2019 by Abidan Brito Clavijo. All rights reserved.
     ------------------------------------------------------------------------ */

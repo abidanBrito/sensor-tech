@@ -1,9 +1,9 @@
 /*  ------------------------------------------------------------------------
-    AUTHOR:        Abidan Brito, Elvira Montagud
-    FILE:          Sensores.h
-    DATE:          29/10/2019
+    AUTHOR:        Abidan Brito
+    FILE:          Sensors.h
+    DATE:          10/12/2019
     STATE:         DONE
-    FUNCTIONALITY: Describe what this file is used for.
+    FUNCTIONALITY: Internal library containing all sensor-related functions.
     ------------------------------------------------------------------------
     NOTICE: (C) Copyright 2019 by Abidan Brito Clavijo. All rights reserved.
     ------------------------------------------------------------------------ */
@@ -12,13 +12,7 @@
 #define SENSORES_H
 
 //// DEPENDENCIES ////
-#include <Adafruit_ADS1015.h>       // ADS library
-#include <Adafruit_Sensor.h>        // Unified Sensor library
-#include <Adafruit_BMP280.h>        // Pressure / Altitude Sensor library
-
-// OBJECT DEClARATION
-Adafruit_ADS1115 adc(0x48);     // Defined at address '0x48'
-Adafruit_BMP280 bmp;            // Sensor object - I2C interface
+#include "System_Configuration.h"
 
 //// FUNCTION PROTOTYPES ////
 void safeValues(float* reading);

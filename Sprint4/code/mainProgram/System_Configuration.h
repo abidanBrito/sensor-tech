@@ -1,9 +1,10 @@
 /*  ------------------------------------------------------------------------
     AUTHOR:         Abidan Brito Clavijo
-    FILE:           GPS_A2235.h
-    DATE:           05/11/2019
+    FILE:           System_Configuration.h
+    DATE:           10/12/2019
     STATE:          DONE
-    FUNCTIONALITY:  Describe what this file is used for.
+    FUNCTIONALITY:  Small internal library with basic dependencies, macros,
+                    transmission initialization and settings for the system.
     ------------------------------------------------------------------------
     NOTICE: (C) Copyright 2019 by Abidan Brito Clavijo. All rights reserved.
     ------------------------------------------------------------------------ */
@@ -12,10 +13,21 @@
 #define SYSTEM_CONFIGURATION_H
 
 //// DEPENDENCIES ////
-#include <Wire.h>       // I2C communication protocol library
+#ifndef WIRE_H
+#define WIRE_H
+
+#include <Wire.h>                   // I2C communication protocol library
+
+#endif
+#include <Adafruit_ADS1015.h>       // ADS library
+#include <Adafruit_Sensor.h>        // Unified Sensor library
+#include <Adafruit_BMP280.h>        // Pressure / Altitude Sensor library
+
+//// OBJECTS DEClARATION ////
+Adafruit_ADS1115 adc(0x48);     // Defined at address '0x48'
+Adafruit_BMP280 bmp;            // Sensor object - I2C interface
 
 //// MACRO DEFINITIONS ////
-#define DEEP_SLEEP_TIME         15    // Hibernating time (15 s)
 #define POWER_PIN_SALINITY      5
 #define POWER_PIN_HUMIDITY      4
 #define OUTPUT_PIN_SALINITY     0
@@ -30,6 +42,7 @@
 #define SLOPE                   0.0348f
 #define D_TEMP                  -0.24f
 #define NUM_READINGS            5
+
 
 void init_setup() {
     // Initialize I2C protocol library

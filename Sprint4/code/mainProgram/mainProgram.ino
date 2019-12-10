@@ -1,7 +1,7 @@
 /*  ------------------------------------------------------------------------
-    AUTHOR:        Abidan Brito, Elvira Montagud, Luis Belloch, Pablo Enguix
+    AUTHOR:        Abidan Brito Clavijo
     FILE:          mainProgram.ino
-    DATE:          29/10/2019
+    DATE:          10/12/2019
     STATE:         DONE
     FUNCTIONALITY: This is the main file that is to be executed. It can be
                    thought of as the center of the codebase.
@@ -10,9 +10,9 @@
     ------------------------------------------------------------------------ */
 
 //// IMPORT EXTERNAL LIBRARIES ////
-#include "Initial_Configuration.h" // System configuration
+#include "System_Configuration.h"  // System configuration
 #include "Interruptions.h"         // Wake on motion & Deep Sleep
-#include "Sensores.h"              // Analog and digital sensors
+#include "Sensors.h"               // Analog and digital sensors
 #include "GPS_A2235.h"             // GPS receiver
 
 //// MACROS ////
@@ -60,12 +60,12 @@ void loop() {
     unsigned int lightState = readVoltageLight(&adc, OUTPUT_PIN_LUMINOSITY);
     printLightState(lightState);
 
-    // Pressure sensor
+    // Barometric pressure / Altitude measures
     bmp280_loop(&bmp);
 
-    // GPS receiver
+    // Geolocation (NMEA messages)
     loopGPS();
 
-    // Hiberation mode
+    // Hibernation mode
     deepSleep_loop(HIBERNATION_TIME);
 } // loop()
