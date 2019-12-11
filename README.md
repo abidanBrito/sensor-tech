@@ -25,6 +25,7 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   Lantronix **A2235-H** GPS Receiver.
 *   InvenSense **MPU-9250** Accelerometer.
 *   Adafruit **BMP280** Barometric Pressure & Altitude Sensor.
+*   **HC-SR04** Ultrasonic Distance Sensor. 
 *   Operational amplifier.
 *   Photodiode.
 *   AND logic gate.
