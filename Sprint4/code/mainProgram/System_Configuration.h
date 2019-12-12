@@ -43,7 +43,6 @@ Adafruit_BMP280 bmp;            // Sensor object - I2C interface
 #define D_TEMP                  -0.24f
 #define NUM_READINGS            5
 
-
 void init_setup() {
     // Initialize I2C protocol library
     Wire.begin();
