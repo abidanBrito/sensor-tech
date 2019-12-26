@@ -63,6 +63,7 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   [x] Rain Gauge.
 *   [x] HTTP server.
 *   [x] PCB Design.
+*   [ ] Convert codebase to OOP.
 *   [ ] Proper documentation.
 
 ## DOCUMENTATION
