@@ -31,14 +31,13 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   AND logic gate.
 *   NTC thermistor.
 *   Resistors.
-*   Protoboards.  
 
 ### Remote Servers
+*   ThingSpeak - IoT Analytics and integration with MATLAB.
 *   Dweet. 
-*   ThingSpeak (integration with MATLAB).
 
 ### Software Development 
-*   Arduino IDE (to interact with the ESP8266 board). 
+*   Arduino IDE. 
 *   Third-party text editors.
 
 ## SYSTEM DESIGN
@@ -50,19 +49,19 @@ This is a team effort for our first semester class **CDIO**. This project follow
 
 ## FEATURES
 ### Implemented 
-*   Salinity sensor (electrical conductivity).
-*   Moisture sensor.
-*   Temperature sensor.
-*   Barometric pressure and altitute sensor.
-*   Luminosity sensor.
-*   GPS receiver.
-*   Anti-theft system (Wake on Motion).
-*   Hibernation mode (Deep Sleep).
+*   [x] Salinity sensor (electrical conductivity).
+*   [x] Moisture sensor.
+*   [x] Temperature sensor.
+*   [x] Barometric pressure and altitute sensor.
+*   [x] Luminosity sensor.
+*   [x] GPS receiver.
+*   [x] Anti-theft system (Wake on Motion).
+*   [x] Hibernation mode (Deep Sleep).
+*   [x] PCB Design.
+*   [x] Rain Gauge.
 
 ### Work in progress / To Do
-*   [x] Rain Gauge.
-*   [x] HTTP server.
-*   [x] PCB Design.
+*   [ ] HTTP server.
 *   [ ] Convert codebase to OOP.
 *   [ ] Proper documentation.
 
