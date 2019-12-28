@@ -59,9 +59,9 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   [x] Hibernation mode (Deep Sleep).
 *   [x] PCB Design.
 *   [x] Rain Gauge.
+*   [x] REST server.
 
 ### Work in progress / To Do
-*   [ ] HTTP server.
 *   [ ] Convert codebase to OOP.
 *   [ ] Proper documentation.
 
