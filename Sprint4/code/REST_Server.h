@@ -28,7 +28,7 @@
 //#define REST_SERVER_DWEET       // Dweet
 
 // Fields to be sent to REST server. It must be contained in [1, 8].
-#define NUM_FIELDS_TO_SEND 2
+#define NUM_FIELDS_TO_SEND 8
 
 //// PIN DEFINITIONS ////
 const int LED_PIN = 5;          // Thing Dev's onboard (green LED).
@@ -222,7 +222,7 @@ void setupHTTP() {
 //// DEBUG DATA ////
 // This function prints out the data pointed by "index" from "data[]" into the
 // Serial Monitor.
-void debugDATA( String data[], const unsigned int index, const char* strLiteral) {
+void debugData(String data[], const unsigned int index, const char* strLiteral) {
 #ifdef PRINT_DEBUG_MESSAGES
     Serial.print(strLiteral);
     Serial.print(" = ");
