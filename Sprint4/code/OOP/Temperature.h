@@ -4,54 +4,31 @@
 //// DEPENDENCIES ////
 #include "System_Configuration.h"
 
-//-----------------------------------------------------------------------
-// Several temperature readings. Return the average
-//-----------------------------------------------------------------------
-float readTemperature(Adafruit_ADS1115* adc, int numReadings, int outputPin,
-                      float y_Intercept, float slope, float d_Temp) {
-    float averageReading = 0.0f;
-    int16_t sum = 0;
+// ---------------------------------------------------
+// ---------------------------------------------------
+class Temperature {
+  private:
 
-    for(int i = 0; i < numReadings; i++) {
-        sum += (*adc).readADC_SingleEnded(outputPin);
-        delay(10);
-    }
+    Adafruit_ADS1115* adc;
+    int numReadings;
+    int outputPin;
+    float y_Intercept;
+    float slope;
+    float d_Temp;
 
-    // Get average reading value
-    averageReading = (sum / numReadings);
+  public:
 
-    // Convert it to (0 - 4.096 V) range
-    averageReading = (float) map(averageReading, 0, 32768, 0, 4096) / 1000;
+    Temperature(const Adafruit_ADS1115* ,const int ,const int ,
+                        const  float ,const float,const float );
 
-    // Transform value from voltaje to temperature
-    float temperature = - (voltageToTemperature(averageReading, y_Intercept, slope, d_Temp));
+    float readTemperature();
 
-    return temperature;
-} // readTemperature()
+    float readTemperature_V(Adafruit_ADS1115*);
 
-//-----------------------------------------------------------------------
-// One temperature reading. Return the voltage
-//-----------------------------------------------------------------------
-float readTemperature_V(Adafruit_ADS1115* adc) {
+    float voltageToTemperature(const float ,const float,const float ,const float);
 
-    int16_t reading = (*adc).readADC_SingleEnded(outputPin);
+    printTemperature(float temperature);
 
-    return reading;
-} // readTemperature()
-
-float voltageToTemperature(float voltage, float y_Intercept, float slope, float d_Temp) {
-    float temperature = 0.0f;
-
-    // Apply formula
-    temperature = ((voltage - y_Intercept) / slope) + d_Temp;
-
-    return temperature;
-} // voltageToTemperature()
-
-void printTemperature(float temperature) {
-    Serial.print("Temperature = ");
-    Serial.print(temperature);
-    Serial.println(" (ºC)");
-} // printTemperature()
+}; // class
 
 #endif

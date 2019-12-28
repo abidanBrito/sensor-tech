@@ -4,72 +4,30 @@
 //// DEPENDENCIES ////
 #include "System_Configuration.h"
 
+// ---------------------------------------------------
+// ---------------------------------------------------
+class Humidity {
+  private:
 
-void safeValues(float* reading);
-//-----------------------------------------------------------------------
-// Several humidity readings. Return the average
-//-----------------------------------------------------------------------
-float readHumidity(Adafruit_ADS1115* adc, int outputPin, int lowerBound,
-                   int upperBound, int numReadings) {
-    float averageReading = 0.0f;
-    int percentageSum = 0;
+    Adafruit_ADS1115* adc;
+    int outputPin;
+    int lowerBound;
+    int upperBound;
+    int numReadings;
 
-    for(int i = 0; i < numReadings; i++) {
-        delay(100);                         // Wait for sensor to settle
+    safeValues(float *);
 
-        // Get new reading
-        int16_t reading = (*adc).readADC_SingleEnded(outputPin);
+  public:
 
-        int percentage = map(reading, upperBound, lowerBound, 100, 0);
-        percentageSum += percentage;    // Add current percentage to the sum
+    Humidity(const Adafruit_ADS1115* ,const int ,const int ,const  float ,const int );
 
-        delay(25);                          // Wait between readings
-    } // for
+    float readHumidity();
 
-    // Get average reading value
-    averageReading = percentageSum / numReadings;
+    float readHumidity_V();
 
-    // Safety net (values within bounds)
-    safeValues(&averageReading);
+    printSensorReading(const float ,const char);
 
-    return averageReading;
-} // readHumidity()
+}; // class
 
-//-----------------------------------------------------------------------
-// One humidity reading. Return the voltage
-//-----------------------------------------------------------------------
-float readHumidity_V(Adafruit_ADS1115* adc, int outputPin) {
-
-    // Get new reading
-    int16_t reading = (*adc).readADC_SingleEnded(outputPin);
-
-    return reading;
-} // readHumidity()
-
-
-//----------------------------------------------------------------------
-// Make sure provided reading doesn't exceed bounds (0 - 100)
-//----------------------------------------------------------------------
-void safeValues(float *reading) {
-    float upperBound = 100.0, lowerBound = 0.0;
-
-    if(*reading > upperBound) {
-        *reading = upperBound;
-    }
-    else if(*reading < lowerBound) {
-        *reading = lowerBound;
-    }
-} // safeValues()
-
-//----------------------------------------------------------------------
-// Print out received data into the Serial Monitor
-//----------------------------------------------------------------------
-void printSensorReading(float measureValue, char StrLiteral[]) {
-    // Print out measure in new range
-    Serial.print(StrLiteral);
-    Serial.print(" percentage: ");
-    Serial.print(measureValue);
-    Serial.println(" %");
-} // printSensorReading()
 
 #endif
