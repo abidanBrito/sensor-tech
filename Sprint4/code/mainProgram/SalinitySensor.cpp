@@ -38,10 +38,10 @@ double SalinitySensor::getSalinity() const {
 
     for(unsigned int i = 0; i < this->numReadings; i++) {
         // Get new reading
-        int16_t reading = this->readSalinity();
+        int16_t adcReading = this->readADC();
 
         // Convert reading to percentage and add it up
-        percentageSum += this->mapFloatingPoint(reading, minPercentage, maxPercentage);
+        percentageSum += this->mapFloatingPoint(adcReading, minPercentage, maxPercentage);
 
         // Wait between readings
         delay(10);
@@ -59,7 +59,7 @@ double SalinitySensor::getSalinity() const {
 //----------------------------------------------------------------------
 // Single ADC reading. It returns a signed integer (16-bit).
 //----------------------------------------------------------------------
-int16_t SalinitySensor::readSalinity() const {
+int16_t SalinitySensor::readADC() const {
     // Supply power to the sensor
     digitalWrite(this->powerPin, HIGH);
 
@@ -67,12 +67,12 @@ int16_t SalinitySensor::readSalinity() const {
     delay(100);
 
     // Get reading
-    int16_t reading = (*(this->adcAddress)).readADC_SingleEnded(this->outputPin);
+    int16_t adcReading = (*(this->adcAddress)).readADC_SingleEnded(this->outputPin);
 
     // Turn off power to the sensor
     digitalWrite(this->powerPin, LOW);
 
-    return reading;
+    return adcReading;
 }
 
 //----------------------------------------------------------------------
@@ -91,16 +91,18 @@ double SalinitySensor::safeValues(double* const reading) const {
 }
 
 //----------------------------------------------------------------------
-// Analogous to "map()", but this one uses floating-point arithmetic.
-// It returns the mapped value.
+// Analogous to "map()", but this one uses floating-point arithmetic and
+// old range parameters are known. It returns the mapped value.
 //----------------------------------------------------------------------
 double SalinitySensor::mapFloatingPoint(const int16_t adcReading,
-                                        const double outLowerBound,
-                                        const double outUpperBound) const {
-    double numerator = (reading - this->lowerBound) * (outUpperBound - outLowerBound);
-    double denominator = (this->upperBound - this->lowerBound) + outLowerBound;
+                                        const double newLowerBound,
+                                        const double newUpperBound) const {
+    int16_t oldupperBound = this->upperBound;
+    int16_t oldlowerBound = this->lowerBound;
+    int16_t oldRange = oldUpperBound - oldLowerBound;
+    double newRange = newUpperBound - newLowerBound;
 
-    return (numerator / denominator);
+    return ((((adcReading - oldLowerBound) * newRange) / oldRange) + newLowerBound);
 }
 
 //----------------------------------------------------------------------
@@ -109,6 +111,6 @@ double SalinitySensor::mapFloatingPoint(const int16_t adcReading,
 //----------------------------------------------------------------------
 void SalinitySensor::printCalibrationReading() const {
     Serial.print("SALINITY (voltage) = ");
-    Serial.print(this->readSalinity());
+    Serial.print(this->readADC());
     Serial.println(" (mV)");
 }

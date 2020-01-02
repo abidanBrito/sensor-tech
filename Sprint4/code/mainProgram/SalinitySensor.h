@@ -25,7 +25,7 @@ private:
 
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
-    double readSalinity() const;                            // Return ADC reading.
+    double readADC() const;                                 // Return ADC reading.
     double safeValues(double* reading) const;               // Return reading within [0, 100] range.
     double mapFloatingPoint(int16_t adcReading,
                             double outLowerBound,

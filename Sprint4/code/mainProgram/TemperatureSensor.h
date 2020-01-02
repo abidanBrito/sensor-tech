@@ -24,7 +24,7 @@ private:
 
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
-    double readTemperature() const;                         // Return ADC reading.
+    double readADC() const;                                 // Return ADC reading.
     double voltageToTemperature(int16_t adcReading,
                                 double slope,
                                 double dTemp,
