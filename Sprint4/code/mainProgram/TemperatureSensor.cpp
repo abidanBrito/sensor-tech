@@ -15,13 +15,11 @@
 //----------------------------------------------------------------------
 TemperatureSensor::TemperatureSensor(const Adafruit_ADS1115* const adcAddress,
                                      const unsigned int outputPin,
-                                     const unsigned int numReadings,
                                      const double slope,
                                      const double dTemp,
                                      const double yIntercept)
     : adcAddress(adcAddress)
     , outputPin(outputPin)
-    , numReadings(numReadings)
     , slope(slope)
     , dTemp(dTemp)
     , yIntercept(yIntercept)

@@ -18,7 +18,6 @@ class TemperatureSensor {
 private:
     Adafruit_ADS1115* adcAddress;
     unsigned int outputPin;
-    unsigned int numReadings;
     double slope;
     double dTemp;
     double yIntercept;
@@ -36,7 +35,6 @@ private:
 public:
     TemperatureSensor(Adafruit_ADS1115* adcAddress,
                       unsigned int outputPin,
-                      unsigned int numReadings,
                       double slope,
                       double dTemp
                       double yIntercept);   // Default constructor.
