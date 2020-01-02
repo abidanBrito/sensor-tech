@@ -13,11 +13,11 @@
 //----------------------------------------------------------------------
 // Temperature sensor constructor. It initializes all member variables.
 //----------------------------------------------------------------------
-TemperatureSensor::TemperatureSensor(const Adafruit_ADS1115* const adcAddress,
-                                     const unsigned int outputPin,
-                                     const double slope,
-                                     const double dTemp,
-                                     const double yIntercept)
+TemperatureSensor::TemperatureSensor(Adafruit_ADS1115 * const adcAddress,
+                                     unsigned int const outputPin,
+                                     double const slope,
+                                     double const dTemp,
+                                     double const yIntercept)
     : adcAddress(adcAddress)
     , outputPin(outputPin)
     , slope(slope)
@@ -30,7 +30,7 @@ TemperatureSensor::TemperatureSensor(const Adafruit_ADS1115* const adcAddress,
 //----------------------------------------------------------------------
 double TemperatureSensor::getTemperature() const {
     // Read from ADC
-    int16_t adcReading = this->readADC();
+    int16_t const adcReading = this->readADC();
 
     // Convert ADC reading to voltage, [0, 4.096] (V) range.
     double newMin = 0.0, newMax = 4096.0;
@@ -54,10 +54,10 @@ int16_t TemperatureSensor::readADC() const {
 //----------------------------------------------------------------------
 // It converts ADC reading to a voltage value -> [0, 4.096] (V).
 //----------------------------------------------------------------------
-double TemperatureSensor::voltageToTemperature(const double voltage,
-                                               const double slope,
-                                               const double dTemp,
-                                               const double yIntercept) const {
+double TemperatureSensor::voltageToTemperature(double const voltage,
+                                               double const slope,
+                                               double const dTemp,
+                                               double const yIntercept) const {
     // Apply conversion formula
     double temperature = ((voltage - yIntercept) / slope) + dTemp;
 
@@ -68,11 +68,11 @@ double TemperatureSensor::voltageToTemperature(const double voltage,
 // Analogous to "map()", but this one uses floating-point arithmetic and
 // old range parameters are known. It returns the mapped value.
 //----------------------------------------------------------------------
-double TemperatureSensor::mapFloatingPoint(const int16_t adcReading,
-                                           const double newLowerBound,
-                                           const double newUpperBound) const {
-    int16_t oldupperBound = 32768;
-    int16_t oldlowerBound = 0;
+double TemperatureSensor::mapFloatingPoint(int16_t const adcReading,
+                                           double const newLowerBound,
+                                           double const newUpperBound) const {
+    int16_t oldUpperBound = 32768;
+    int16_t oldLowerBound = 0;
     int16_t oldRange = oldUpperBound - oldLowerBound;
     double newRange = newUpperBound - newLowerBound;
 
@@ -83,7 +83,7 @@ double TemperatureSensor::mapFloatingPoint(const int16_t adcReading,
 // It prints out the current voltage (V) into the Serial Monitor for
 // calibration purposes.
 //----------------------------------------------------------------------
-void Temperature::printCalibrationReading() const {
+void TemperatureSensor::printCalibrationReading() const {
     // Read from ADC
     int16_t adcReading = this->readADC();
 

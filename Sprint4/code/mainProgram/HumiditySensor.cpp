@@ -13,11 +13,11 @@
 //----------------------------------------------------------------------
 // Salinity sensor constructor. It initializes all member variables.
 //----------------------------------------------------------------------
-HumiditySensor::HumiditySensor(const Adafruit_ADS1115* const adcAddress,
-                               const unsigned int outputPin,
-                               const unsigned int numReadings,
-                               const int16_t lowerBound,
-                               const int16_t upperBound)
+HumiditySensor::HumiditySensor(Adafruit_ADS1115 * const adcAddress,
+                               unsigned int const outputPin,
+                               unsigned int const numReadings,
+                               int16_t const lowerBound,
+                               int16_t const upperBound)
     : adcAddress(adcAddress)
     , outputPin(outputPin)
     , numReadings(numReadings)
@@ -32,11 +32,11 @@ double HumiditySensor::getHumidity() const {
     // Floating-point for precision (prevent overflow)
     double averageReading = 0.0;
     double percentageSum = 0.0;
-    double minPercentage = 0.0, maxPercentage = 100.0;
+    double const minPercentage = 0.0, maxPercentage = 100.0;
 
-    for (unsigned int i = 0; i < this->numReadings; i++) {
+    for(unsigned int i = 0; i < this->numReadings; i++) {
         // Get new reading
-        int16_t reading = this->readHumidity();
+        int16_t reading = this->readADC();
 
         // Convert reading to percentage and add it up
         percentageSum += this->mapFloatingPoint(reading, minPercentage, maxPercentage);
@@ -54,7 +54,7 @@ double HumiditySensor::getHumidity() const {
 //----------------------------------------------------------------------
 // Single ADC reading. It returns a signed integer (16-bit).
 //----------------------------------------------------------------------
-int16_t HumiditySensor::readHumidity() const {
+int16_t HumiditySensor::readADC() const {
     // Wait for sensor to settle
     delay(50);
 
@@ -67,9 +67,9 @@ int16_t HumiditySensor::readHumidity() const {
 //----------------------------------------------------------------------
 // It makes sure the provided reading doesn't exceed percentage bounds.
 //----------------------------------------------------------------------
-double HumiditySensor::safeValues(double* const reading) const {
-    double maxPercentage = 100.0;
-    double minPercentage = 0.0;
+double HumiditySensor::safeValues(double * const reading) const {
+    double const maxPercentage = 100.0;
+    double const minPercentage = 0.0;
 
     if(*reading > maxPercentage) {
         *reading = maxPercentage;
@@ -80,16 +80,18 @@ double HumiditySensor::safeValues(double* const reading) const {
 }
 
 //----------------------------------------------------------------------
-// Analogous to "map()", but this one uses floating-point arithmetic.
-// It returns the mapped value.
+// Analogous to "map()", but this one uses floating-point arithmetic and
+// old range parameters are known. It returns the mapped value.
 //----------------------------------------------------------------------
-double HumiditySensor::mapFloatingPoint(const int16_t adcReading,
-                                        const double outLowerBound,
-                                        const double outUpperBound) const {
-    double numerator = (reading - this->lowerBound) * (outUpperBound - outLowerBound);
-    double denominator = (this->upperBound - this->lowerBound) + outLowerBound;
+double HumiditySensor::mapFloatingPoint(int16_t const adcReading,
+                                        double const newLowerBound,
+                                        double const newUpperBound) const {
+    int16_t oldUpperBound = this->upperBound;
+    int16_t oldLowerBound = this->lowerBound;
+    int16_t oldRange = oldUpperBound - oldLowerBound;
+    double newRange = newUpperBound - newLowerBound;
 
-    return (numerator / denominator);
+    return ((((adcReading - oldLowerBound) * newRange) / oldRange) + newLowerBound);
 }
 
 //----------------------------------------------------------------------
@@ -98,6 +100,6 @@ double HumiditySensor::mapFloatingPoint(const int16_t adcReading,
 //----------------------------------------------------------------------
 void HumiditySensor::printCalibrationReading() const {
     Serial.print("Humidity (voltage) = ");
-    Serial.print(this->readHumidity());
+    Serial.print(this->readADC());
     Serial.println(" (mV)");
 }

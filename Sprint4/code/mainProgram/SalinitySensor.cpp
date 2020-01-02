@@ -13,12 +13,12 @@
 //----------------------------------------------------------------------
 // Salinity sensor constructor. It initializes all member variables.
 //----------------------------------------------------------------------
-SalinitySensor::SalinitySensor(const Adafruit_ADS1115* const adcAddress,
-                               const unsigned int powerPin,
-                               const unsigned int outputPin,
-                               const unsigned int numReadings,
-                               const int16_t lowerBound,
-                               const int16_t upperBound)
+SalinitySensor::SalinitySensor(Adafruit_ADS1115 * const adcAddress,
+                               unsigned int const powerPin,
+                               unsigned int const outputPin,
+                               unsigned int const numReadings,
+                               int16_t const lowerBound,
+                               int16_t const upperBound)
     : adcAddress(adcAddress)
     , powerPin(powerPin)
     , outputPin(outputPin)
@@ -34,7 +34,7 @@ double SalinitySensor::getSalinity() const {
     // Floating-point for precision (prevent overflow)
     double averageReading = 0.0;
     double percentageSum = 0.0;
-    double minPercentage = 0.0, maxPercentage = 100.0;
+    double const minPercentage = 0.0, maxPercentage = 100.0;
 
     for(unsigned int i = 0; i < this->numReadings; i++) {
         // Get new reading
@@ -78,9 +78,9 @@ int16_t SalinitySensor::readADC() const {
 //----------------------------------------------------------------------
 // It makes sure the provided reading doesn't exceed percentage bounds.
 //----------------------------------------------------------------------
-double SalinitySensor::safeValues(double* const reading) const {
-    double maxPercentage = 100.0;
-    double minPercentage = 0.0;
+double SalinitySensor::safeValues(double * const reading) const {
+    double const maxPercentage = 100.0;
+    double const minPercentage = 0.0;
 
     if(*reading > maxPercentage) {
         *reading = maxPercentage;
@@ -94,11 +94,11 @@ double SalinitySensor::safeValues(double* const reading) const {
 // Analogous to "map()", but this one uses floating-point arithmetic and
 // old range parameters are known. It returns the mapped value.
 //----------------------------------------------------------------------
-double SalinitySensor::mapFloatingPoint(const int16_t adcReading,
-                                        const double newLowerBound,
-                                        const double newUpperBound) const {
-    int16_t oldupperBound = this->upperBound;
-    int16_t oldlowerBound = this->lowerBound;
+double SalinitySensor::mapFloatingPoint(int16_t const adcReading,
+                                        double const newLowerBound,
+                                        double const newUpperBound) const {
+    int16_t oldUpperBound = this->upperBound;
+    int16_t oldLowerBound = this->lowerBound;
     int16_t oldRange = oldUpperBound - oldLowerBound;
     double newRange = newUpperBound - newLowerBound;
 

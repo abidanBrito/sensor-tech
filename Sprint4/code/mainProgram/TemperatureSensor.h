@@ -11,12 +11,17 @@
 #ifndef TEMPERATURESENSOR_H
 #define TEMPERATURESENSOR_H
 
+#ifndef ADCAPI_H
+#define ADCAPI_H
+#include <Adafruit_ADS1015.h>
+#endif
+
 // ---------------------------------------------------
 // Temperature sensor class definition.
 // ---------------------------------------------------
 class TemperatureSensor {
 private:
-    Adafruit_ADS1115* adcAddress;
+    Adafruit_ADS1115 * adcAddress;
     unsigned int outputPin;
     double slope;
     double dTemp;
@@ -24,8 +29,8 @@ private:
 
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
-    double readADC() const;                                 // Return ADC reading.
-    double voltageToTemperature(int16_t adcReading,
+    int16_t readADC() const;                                // Return ADC reading.
+    double voltageToTemperature(double voltage,
                                 double slope,
                                 double dTemp,
                                 double yIntercept) const;   // Return voltage value from ADC reading.
@@ -33,10 +38,10 @@ private:
                             double newlowerBound,
                             double newUpperBound) const;    // Floating-point compliant "map()".
 public:
-    TemperatureSensor(Adafruit_ADS1115* adcAddress,
+    TemperatureSensor(Adafruit_ADS1115 * adcAddress,
                       unsigned int outputPin,
                       double slope,
-                      double dTemp
+                      double dTemp,
                       double yIntercept);   // Default constructor.
     double getTemperature() const;          // Return temperature (º C).
     void printCalibrationReading() const;   // Print voltage value for calibration.

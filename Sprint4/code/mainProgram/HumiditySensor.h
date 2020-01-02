@@ -11,12 +11,17 @@
 #ifndef HUMIDITYSENSOR_H
 #define HUMIDITYSENSOR_H
 
+#ifndef ADCAPI_H
+#define ADCAPI_H
+#include <Adafruit_ADS1015.h>
+#endif
+
 // ---------------------------------------------------
 // Humidity (soil moisture) sensor class definition.
 // ---------------------------------------------------
 class HumiditySensor {
 private:
-    Adafruit_ADS1115* adcAddress;
+    Adafruit_ADS1115 * adcAddress;
     unsigned int outputPin;
     unsigned int numReadings;
     int16_t lowerBound;
@@ -24,14 +29,14 @@ private:
 
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
-    double readHumidity() const;                            // Return ADC reading.
-    double safeValues(double* reading) const;               // Return reading within [0, 100] range.
+    int16_t readADC() const;                                // Return ADC reading.
+    double safeValues(double * reading) const;              // Return reading within [0, 100] range.
     double mapFloatingPoint(int16_t adcReading,
                             double outLowerBound,
                             double outUpperBound) const;    // Floating-point compliant "map()".
 
 public:
-    HumiditySensor(Adafruit_ADS1115* adcAddress,
+    HumiditySensor(Adafruit_ADS1115 * adcAddress,
                    unsigned int outputPin,
                    unsigned int numReadings,
                    int16_t lowerBound,

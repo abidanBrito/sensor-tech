@@ -11,9 +11,17 @@
 #ifndef LUMINOSITYSENSOR_H
 #define LUMINOSITYSENSOR_H
 
+#ifndef ADCAPI_H
+#define ADCAPI_H
+#include <Adafruit_ADS1015.h>
+#endif
+
+// ---------------------------------------------------
+// Luminosity sensor class definition.
+// ---------------------------------------------------
 class LuminositySensor {
 private:
-    Adafruit_ADS1115* adcAddress;
+    Adafruit_ADS1115 * adcAddress;
     unsigned int outputPin;
 
 // MEMBER FUNCTIONS - DECLARATIONS
@@ -24,7 +32,7 @@ private:
                             double outUpperBound) const;    // Floating-point compliant "map()".
 
 public:
-    LuminositySensor(Adafruit_ADS1115* adcAddress,
+    LuminositySensor(Adafruit_ADS1115 * adcAddress,
                      unsigned int outputPin);       // Default constructor.
     unsigned int getLuminosityState() const;        // Return light state -> [0, 3].
     void printCalibrationReading() const;           // Print voltage value for calibration.

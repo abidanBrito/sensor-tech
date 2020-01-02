@@ -14,8 +14,8 @@
 // Luminosity Salinity sensor constructor. It initializes all member
 // variables.
 //----------------------------------------------------------------------
-LuminositySensor::LuminositySensor(const Adafruit_ADS1115* const adcAddress,
-                                   const unsigned int outputPin)
+LuminositySensor::LuminositySensor(Adafruit_ADS1115 * const adcAddress,
+                                   unsigned int const outputPin)
     : adcAddress(adcAddress)
     , outputPin(outputPin)
 {}
@@ -26,7 +26,7 @@ LuminositySensor::LuminositySensor(const Adafruit_ADS1115* const adcAddress,
 //----------------------------------------------------------------------
 unsigned int LuminositySensor::getLuminosityState() const {
     // Read from ADC
-    const int16_t adcReading = this->readADC();
+    int16_t const adcReading = this->readADC();
 
     // Convert ADC reading to voltage, [0, 4.096] (V) range.
     double newMin = 0.0, newMax = 4096.0;
@@ -63,11 +63,11 @@ int16_t LuminositySensor::readADC() const {
 // Analogous to "map()", but this one uses floating-point arithmetic and
 // old range parameters are known. It returns the mapped value.
 //----------------------------------------------------------------------
-double LuminositySensor::mapFloatingPoint(const int16_t adcReading,
-                                          const double newLowerBound,
-                                          const double newUpperBound) const {
-    int16_t oldupperBound = 32768;
-    int16_t oldlowerBound = 0;
+double LuminositySensor::mapFloatingPoint(int16_t const adcReading,
+                                          double const newLowerBound,
+                                          double const newUpperBound) const {
+    int16_t oldUpperBound = 32768;
+    int16_t oldLowerBound = 0;
     int16_t oldRange = oldUpperBound - oldLowerBound;
     double newRange = newUpperBound - newLowerBound;
 
