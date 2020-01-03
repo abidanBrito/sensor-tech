@@ -1,76 +1,71 @@
 /*  ------------------------------------------------------------------------
     AUTHOR:         Abidan Brito Clavijo
-    FILE:           TemperatureSensor.cpp
+    FILE:           LuminositySensor.cpp
     DATE:           02/01/2020
     STATE:          DONE
-    FUNCTIONALITY:  Temperature sensor member functions (definitions).
+    FUNCTIONALITY:  Luminosity sensor member functions (definitions).
     ------------------------------------------------------------------------
     NOTICE: (C) Copyright 2019 by Abidan Brito Clavijo. All rights reserved.
     ------------------------------------------------------------------------ */
 
-#include "TemperatureSensor.h"
+#include "LuminositySensor.h"
 
 //----------------------------------------------------------------------
-// Temperature sensor constructor. It initializes all member variables.
+// Luminosity Salinity sensor constructor. It initializes all member
+// variables.
 //----------------------------------------------------------------------
-TemperatureSensor::TemperatureSensor(Adafruit_ADS1115 * const adcAddress,
-                                     unsigned int const outputPin,
-                                     double const slope,
-                                     double const dTemp,
-                                     double const yIntercept)
+LuminositySensor::LuminositySensor(Adafruit_ADS1115 * const adcAddress,
+                                   unsigned int const outputPin)
     : adcAddress(adcAddress)
     , outputPin(outputPin)
-    , slope(slope)
-    , dTemp(dTemp)
-    , yIntercept(yIntercept)
 {}
 
 //----------------------------------------------------------------------
-// Single temperature reading. It returns the current temperature (º C).
+// Single luminosity reading. It returns the current light state in the
+// form of an unsigned integer.
 //----------------------------------------------------------------------
-double TemperatureSensor::getTemperature() const {
+unsigned int LuminositySensor::getLuminosityState() const {
     // Read from ADC
     int16_t const adcReading = this->readADC();
 
     // Convert ADC reading to voltage, [0, 4.096] (V) range.
     double newMin = 0.0, newMax = 4096.0;
-    double voltage = this->mapFloatingPoint(adcReading, newMin, newMax) / 1000;
+    double voltage = this->mapFloatingPoint(adcReading, newMin, newMax);
 
-    // Convert voltaje value to temperature (º C).
-    double temperature = - this->voltageToTemperature(voltage, slope, dTemp, yIntercept);
-
-    return temperature;
+    // Voltage expressed in mV.
+    // Photodiode saturation voltage = 3.7 V.
+    if(voltage <= 30) {             // Dark / covered
+        return 0;
+    }
+    if (voltage <= 3700) {
+        if(voltage <= 150) {
+            return 1;               // Cloudy / in shadow
+        }
+        else if (voltage < 1500) {
+            return 2;               // Cloudless
+        }
+        else {
+            return 3;               // Sunny
+        }
+    }
 }
 
 //----------------------------------------------------------------------
 // Single ADC reading. It returns a signed integer (16-bit).
 //----------------------------------------------------------------------
-int16_t TemperatureSensor::readADC() const {
+int16_t LuminositySensor::readADC() const {
     int16_t adcReading = (*(this->adcAddress)).readADC_SingleEnded(this->outputPin);
 
     return adcReading;
 }
 
 //----------------------------------------------------------------------
-// It converts ADC reading to a voltage value -> [0, 4.096] (V).
-//----------------------------------------------------------------------
-double TemperatureSensor::voltageToTemperature(double const voltage,
-                                               double const slope,
-                                               double const dTemp,
-                                               double const yIntercept) const {
-    // Apply conversion formula
-    double temperature = ((voltage - yIntercept) / slope) + dTemp;
-
-    return temperature;
-}
-
-//----------------------------------------------------------------------
 // Analogous to "map()", but this one uses floating-point arithmetic and
 // old range parameters are known. It returns the mapped value.
 //----------------------------------------------------------------------
-double TemperatureSensor::mapFloatingPoint(int16_t const adcReading,
-                                           double const newLowerBound,
-                                           double const newUpperBound) const {
+double LuminositySensor::mapFloatingPoint(int16_t const adcReading,
+                                          double const newLowerBound,
+                                          double const newUpperBound) const {
     int16_t oldUpperBound = 32768;
     int16_t oldLowerBound = 0;
     int16_t oldRange = oldUpperBound - oldLowerBound;
@@ -83,14 +78,14 @@ double TemperatureSensor::mapFloatingPoint(int16_t const adcReading,
 // It prints out the current voltage (V) into the Serial Monitor for
 // calibration purposes.
 //----------------------------------------------------------------------
-void TemperatureSensor::printCalibrationReading() const {
+void LuminositySensor::printCalibrationReading() const {
     // Read from ADC
     int16_t adcReading = this->readADC();
 
     // Convert ADC reading to voltage, [0, 4.096] (V) range.
-    double voltage = this->mapFloatingPoint(adcReading, 0, 4096) / 1000;
+    double voltage = this->mapFloatingPoint(adcReading, 0, 4096);
 
-    Serial.print("Temperature (voltage) = ");
+    Serial.print("Luminosity (voltage) = ");
     Serial.print(voltage);
-    Serial.println(" (V)");
+    Serial.println(" (mV)");
 }
