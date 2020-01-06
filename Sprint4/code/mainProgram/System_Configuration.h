@@ -17,9 +17,7 @@
 #include <Wire.h>                   // I2C communication protocol library.
 #endif
 
-//#include <Adafruit_ADS1015.h>       // ADS library.
 #include <Adafruit_Sensor.h>        // Unified Sensor library.
-#include <Adafruit_BMP280.h>        // Pressure / Altitude Sensor library.
 #include "Sensors.h"                // Sensor-related miscellaneous.
 
 // Sensors (classes)
