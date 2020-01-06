@@ -174,7 +174,7 @@ void HTTPGet(String fieldData[], int numFields) {
         Serial.println("Connecting to Server for update...");
 #endif
         client.print(PostData);
-        client.println(" HTTP/1.1");
+        client.println("HTTP/1.1");
         client.println("Host: " + String(Rest_Host));
         client.println("Connection: close");
         client.println();
@@ -222,7 +222,7 @@ void setupHTTP() {
 //// DEBUG DATA ////
 // This function prints out the data pointed by "index" from "data[]" into the
 // Serial Monitor.
-void debugData(String data[], const unsigned int index, const char* strLiteral) {
+void debugData(const String data[], const unsigned int index, const char* strLiteral) {
 #ifdef PRINT_DEBUG_MESSAGES
     Serial.print(strLiteral);
     Serial.print(" = ");
