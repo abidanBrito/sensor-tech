@@ -62,7 +62,6 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   [x] REST server.
 
 ### Work in progress / To Do
-*   [ ] Convert codebase to OOP.
 *   [ ] Proper documentation.
 
 ## DOCUMENTATION
