@@ -19,7 +19,6 @@
 #ifndef GPS_A2235_H
 #define GPS_A2235_H
 
-//// DEPENDENCIES ////
 #include <TinyGPS++.h>
 #include <SoftwareSerial.h>
 
@@ -42,7 +41,7 @@ static void smartDelay(unsigned long ms) {
             gps.encode(softwareSerial.read());
         }
     } while((millis() - start) < ms);
-} // smartDelay()
+}
 
 // Turn GPS on/off by sending a rectangular pulse through the signal
 void switchOnOff() {
@@ -51,7 +50,7 @@ void switchOnOff() {
     digitalWrite(INIT_PIN, HIGH);
     delay(200);
     digitalWrite(INIT_PIN, LOW);
-} // switchOnOff()
+}
 
 void setupGPS() {
     Serial.begin(9600);             // Communication stream with IDE serial monitor (USB)
@@ -65,7 +64,7 @@ void setupGPS() {
     Serial.println("----------------------------------------------------------------------------------------------------------");
     Serial.println("DATE (MM/DD/YY)  TIME (HH:MM:SS)  LATITUDE (deg)  LONGITUDE (deg) ALTITUDE (ft)  COURSE (deg)  SPEED (mph)");
     Serial.println("----------------------------------------------------------------------------------------------------------");
-} // setupGPS()
+}
 
 void loopGPS() {
     char gpsDate[10];
@@ -115,6 +114,6 @@ void loopGPS() {
 
     // Wait between readings
     smartDelay(3000);
-} // loopGPS()
+}
 
 #endif

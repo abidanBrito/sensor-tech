@@ -28,7 +28,7 @@
 //#define REST_SERVER_DWEET       // Dweet
 
 // Fields to be sent to REST server. It must be contained in [1, 8].
-#define NUM_FIELDS_TO_SEND 8
+#define NUM_FIELDS_TO_SEND 7
 
 //// PIN DEFINITIONS ////
 const int LED_PIN = 5;          // Thing Dev's onboard (green LED).
@@ -235,8 +235,8 @@ void debugData(const String data[], const unsigned int index, const char* strLit
 // sends it to ThingSpeak or Dweet, using either the GET or POST method.
 // It gets called from loop().
 void loopHTTP(double& salinity, double& humidity, double& temperature,
-              double& luminosity, double& barometricPressure, double& rainfall,
-              double& longitude, double& latitude) {
+              double& luminosity, double& barometricPressure, double& altitude,
+              double& rainfall) {
     // Up to 8 cells (maximum)
     String data[NUM_FIELDS_TO_SEND + 1];
 
@@ -256,13 +256,10 @@ void loopHTTP(double& salinity, double& humidity, double& temperature,
     debugData(data, 5, "BAROMETRIC PRESSURE");
 
     data[6] = String(rainfall);
-    debugData(data, 6, "RAINFALL");
+    debugData(data, 6, "ALTITUDE");
 
     data[7] = String(longitude);
-    debugData(data, 7, "LONGITUDE");
-
-    data[8] = String(latitude);
-    debugData(data, 8, "LATITUDE");
+    debugData(data, 7, "RAINFALL");
 
     // NOTE(abi): Pick method: GET(ThingSpeak or Dweet) or POST(ThingSpeak).
     HTTPGet(data, NUM_FIELDS_TO_SEND);

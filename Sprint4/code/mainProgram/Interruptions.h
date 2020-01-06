@@ -29,6 +29,8 @@
 #endif
 
 //// MACROS ////
+#define HIBERNATION_TIME            10
+
 #define MPU9250_ADDRESS             0x68
 #define WAKE_ON_MOTION_THRESHOLD    0x1F
 

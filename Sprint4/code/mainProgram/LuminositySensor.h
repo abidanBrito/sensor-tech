@@ -32,6 +32,7 @@ public:
     LuminositySensor(Adafruit_ADS1115 * adcAddress,
                      unsigned int outputPin);       // Default constructor.
     unsigned int getLuminosityState() const;        // Return light state -> [0, 3].
+    void printLightState() const;
     void printCalibrationReading() const;           // Print voltage value for calibration.
 };
 

@@ -73,6 +73,26 @@ double LuminositySensor::mapFloatingPoint(int16_t const adcReading,
     return ((((adcReading - oldLowerBound) * newRange) / oldRange) + newLowerBound);
 }
 
+// ----------------------------------------------------------------------
+// It prints out the current luminosity (light state).
+// ----------------------------------------------------------------------
+void LuminositySensor::printLightState() const {
+    Serial.print("LIGHT INTENSITY: ");
+    if(lightState == 0) {
+        Serial.println("dark.");
+    }
+    else if(lightState == 1) {
+        Serial.println("cloudy / in shadow.");
+    }
+    else if(lightState == 2) {
+        Serial.println("cloudless.");
+    }
+    else {
+        Serial.println("sunny'.");
+    }
+    Serial.println();
+}
+
 //----------------------------------------------------------------------
 // It prints out the current voltage (V) into the Serial Monitor for
 // calibration purposes.

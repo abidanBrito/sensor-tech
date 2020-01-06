@@ -26,6 +26,9 @@ public:
     BMP280(Adafruit_BMP280 * bmpAddress);   // Default constructor.
     void setup() const;                     // Set up the sensor (configuration).
     void printReadings() const;             // Print out sensor readings.
+    double getTemperature() const;          // Return ambient temperature reading.
+    double getPressure() const;             // Return barometric pressure reading.
+    double getAltitude() const;             // Return altitude reading.
 };
 
 #endif

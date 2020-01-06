@@ -12,7 +12,6 @@
 
 //// MACRO DEFINITIONS ////
 #define POWER_PIN_SALINITY      5
-#define POWER_PIN_HUMIDITY      4
 #define OUTPUT_PIN_SALINITY     0
 #define OUTPUT_PIN_HUMIDITY     1
 #define OUTPUT_PIN_TEMPERATURE  2
@@ -25,38 +24,18 @@
 #define SLOPE                   0.0348
 #define D_TEMP                  -0.24
 #define NUM_READINGS            5
-#define ECHO_PIN                0
-#define POWER_PIN               5
-#define TAZA_ASUN_ML            402.12f
+#define ECHO_PIN_RAINGAUGE      0
+#define TAZA_ASUN_ML            402.12
 
 // ----------------------------------------------------------------------
 // Print out the received data into the Serial Monitor.
 // ----------------------------------------------------------------------
-void printSensorReading(float measureValue, char* strLiteral, char* strUnit) {
+void printSensorReading(double measureValue, char* strLiteral, char* strUnit) {
     Serial.print(strLiteral);
     Serial.print(" = ");
     Serial.print(measureValue);
+    Serial.println(" ");
     Serial.println(strUnit);
-}
-
-// ----------------------------------------------------------------------
-// Print out luminosity sensor reading (light state).
-// ----------------------------------------------------------------------
-void LuminositySensor::printLuminosityState() const {
-    Serial.print("LIGHT INTENSITY: ");
-    if(lightState == 0) {
-        Serial.println("dark.");
-    }
-    else if(lightState == 1) {
-        Serial.println("cloudy / in shadow.");
-    }
-    else if(lightState == 2) {
-        Serial.println("cloudless.");
-    }
-    else {
-        Serial.println("sunny'.");
-    }
-    Serial.println();
 }
 
 #endif

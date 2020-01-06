@@ -10,10 +10,16 @@
 
 #include "BMP280.h"
 
+//----------------------------------------------------------------------
+// BMP280 sensor constructor. It initializes all member variables.
+//----------------------------------------------------------------------
 BMP280::BMP280(Adafruit_BMP280 * bmpAddress)
     : bmpAddress(bmpAddress)
 {}
 
+//----------------------------------------------------------------------
+// It initializes communication with the sensor and sets it up.
+//----------------------------------------------------------------------
 void BMP280::setup() const {
     // Check communication with the sensor
     if (!(*this->bmpAddress).begin()) {
@@ -37,24 +43,36 @@ void BMP280::defaultSampling() const {
                                     Adafruit_BMP280::STANDBY_MS_500);   // Standby time
 }
 
-double BMP280::getPressure() const {
-    double pressure = (*this->bmpAddress).readPressure() / 100;
-
-    return pressure;
-}
-
-double BMP280::getAltitude() const {
-    double altitude = (*this->bmpAddress).readAltitude(pressure + 1);
-
-    return altitude;
-}
-
+//----------------------------------------------------------------------
+// Ambient temperature reading. It returns the current temperature (º C).
+//----------------------------------------------------------------------
 double BMP280::getTemperature() const {
     double temperature = (*this->bmpAddress).readTemperature();
 
     return temperature;
 }
 
+//----------------------------------------------------------------------
+// Barometric pressure reading. It returns the current pressure (hPa).
+//----------------------------------------------------------------------
+double BMP280::getPressure() const {
+    double pressure = (*this->bmpAddress).readPressure() / 100;
+
+    return pressure;
+}
+
+//----------------------------------------------------------------------
+// Altitude reading. It returns the current altitude (m).
+//----------------------------------------------------------------------
+double BMP280::getAltitude() const {
+    double altitude = (*this->bmpAddress).readAltitude(pressure + 1);
+
+    return altitude;
+}
+
+//----------------------------------------------------------------------
+// It prints out all magnitude readings into the Serial Monitor.
+//----------------------------------------------------------------------
 void BMP280::printReadings() const {
     // Pressure (hPa)
     Serial.print("Pressure\t=\t");
