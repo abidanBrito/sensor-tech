@@ -11,10 +11,7 @@
 #ifndef LUMINOSITYSENSOR_H
 #define LUMINOSITYSENSOR_H
 
-#ifndef ADCAPI_H
-#define ADCAPI_H
-#include <Adafruit_ADS1015.h>
-#endif
+#include "ADC_API.h"
 
 // ---------------------------------------------------
 // Luminosity sensor class definition.

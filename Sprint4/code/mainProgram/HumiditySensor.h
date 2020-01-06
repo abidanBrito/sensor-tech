@@ -11,10 +11,7 @@
 #ifndef HUMIDITYSENSOR_H
 #define HUMIDITYSENSOR_H
 
-#ifndef ADCAPI_H
-#define ADCAPI_H
-#include <Adafruit_ADS1015.h>
-#endif
+#include "ADC_API.h"
 
 // ---------------------------------------------------
 // Humidity (soil moisture) sensor class definition.

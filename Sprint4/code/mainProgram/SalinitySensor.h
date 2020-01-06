@@ -11,10 +11,7 @@
 #ifndef SALINITYSENSOR_H
 #define SALINITYSENSOR_H
 
-#ifndef ADCAPI_H
-#define ADCAPI_H
-#include <Adafruit_ADS1015.h>
-#endif
+#include "ADC_API.h"
 
 // ---------------------------------------------------
 // Salinity sensor class definition.

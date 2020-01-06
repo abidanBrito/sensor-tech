@@ -11,10 +11,7 @@
 #ifndef TEMPERATURESENSOR_H
 #define TEMPERATURESENSOR_H
 
-#ifndef ADCAPI_H
-#define ADCAPI_H
-#include <Adafruit_ADS1015.h>
-#endif
+#include "ADC_API.h"
 
 // ---------------------------------------------------
 // Temperature sensor class definition.

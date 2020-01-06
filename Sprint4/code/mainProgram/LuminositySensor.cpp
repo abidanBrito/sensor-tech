@@ -11,8 +11,7 @@
 #include "LuminositySensor.h"
 
 //----------------------------------------------------------------------
-// Luminosity Salinity sensor constructor. It initializes all member
-// variables.
+// Luminosity sensor constructor. It initializes all member variables.
 //----------------------------------------------------------------------
 LuminositySensor::LuminositySensor(Adafruit_ADS1115 * const adcAddress,
                                    unsigned int const outputPin)
