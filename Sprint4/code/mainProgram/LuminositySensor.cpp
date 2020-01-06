@@ -77,6 +77,8 @@ double LuminositySensor::mapFloatingPoint(int16_t const adcReading,
 // It prints out the current luminosity (light state).
 // ----------------------------------------------------------------------
 void LuminositySensor::printLightState() const {
+    unsigned int const lightState = this->getLuminosityState();
+
     Serial.print("LIGHT INTENSITY: ");
     if(lightState == 0) {
         Serial.println("dark.");

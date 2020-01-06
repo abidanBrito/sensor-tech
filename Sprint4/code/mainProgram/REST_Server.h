@@ -235,7 +235,7 @@ void debugData(const String data[], const unsigned int index, const char* strLit
 // sends it to ThingSpeak or Dweet, using either the GET or POST method.
 // It gets called from loop().
 void loopHTTP(double& salinity, double& humidity, double& temperature,
-              double& luminosity, double& barometricPressure, double& altitude,
+              unsigned int& luminosity, double& barometricPressure, double& altitude,
               double& rainfall) {
     // Up to 8 cells (maximum)
     String data[NUM_FIELDS_TO_SEND + 1];
@@ -255,10 +255,10 @@ void loopHTTP(double& salinity, double& humidity, double& temperature,
     data[5] = String(barometricPressure);
     debugData(data, 5, "BAROMETRIC PRESSURE");
 
-    data[6] = String(rainfall);
+    data[6] = String(altitude);
     debugData(data, 6, "ALTITUDE");
 
-    data[7] = String(longitude);
+    data[7] = String(rainfall);
     debugData(data, 7, "RAINFALL");
 
     // NOTE(abi): Pick method: GET(ThingSpeak or Dweet) or POST(ThingSpeak).

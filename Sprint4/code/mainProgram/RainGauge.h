@@ -10,19 +10,22 @@
 #ifndef RAINGAUGE_H
 #define RAINGAUGE_H
 
+#include "Arduino.h"
+
 // ---------------------------------------------------
 // Rain gauge (rainfall) sensor class definition.
 // ---------------------------------------------------
 class RainGauge {
 private:
-    int powerPin;
-    int echoPin;
+    unsigned int powerPin;
+    unsigned int echoPin;
 
 // MEMBER FUNCTIONS - DECLARATIONS
 public:
-    RainGauge();
-    double getRainfall() const;
-    void printRainfall() const;
+    RainGauge(unsigned int powerPin,
+              unsigned int echoPin);    // Default constructor.
+    double getRainfall() const;         // Return rainfall reading.
+    void printRainfall() const;         // Print out rainfall reading.
 };
 
 #endif

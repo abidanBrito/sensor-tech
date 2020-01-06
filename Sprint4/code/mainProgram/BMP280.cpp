@@ -65,6 +65,7 @@ double BMP280::getPressure() const {
 // Altitude reading. It returns the current altitude (m).
 //----------------------------------------------------------------------
 double BMP280::getAltitude() const {
+    double pressure = (*this->bmpAddress).readPressure() / 100;
     double altitude = (*this->bmpAddress).readAltitude(pressure + 1);
 
     return altitude;
@@ -81,6 +82,7 @@ void BMP280::printReadings() const {
 
     // Altitude (m)
     Serial.print("Altitude\t=\t");
+    double pressure = (*this->bmpAddress).readPressure() / 100;
     Serial.print((*this->bmpAddress).readAltitude(pressure + 1));
     Serial.println(" (m)");
 

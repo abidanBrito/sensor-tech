@@ -40,31 +40,31 @@ void setup() {
 //----------------------------------------------------------------------
 void loop() {
     // Salinity measure.
-    double const meanSalinity = salinityOBJ.getSalinity();
+    double meanSalinity = salinityOBJ.getSalinity();
     printSensorReading(meanSalinity, "Salinity", "%");
 
     // Humidity measure.
-    double const meanHumidity = humidityOBJ.getHumidity();
+    double meanHumidity = humidityOBJ.getHumidity();
     printSensorReading(meanHumidity, "Humidity", "%");
     Serial.println();
 
     // Temperature measure.
-    double const temperature = tempOBJ.getTemperature();
+    double temperature = tempOBJ.getTemperature();
     printSensorReading(temperature, "Temperature", "º C");
     Serial.println();
 
     // Light intensity measure.
-    unsigned int const lightState = lightOBJ.getLuminosityState();
+    unsigned int lightState = lightOBJ.getLuminosityState();
     lightOBJ.printLightState();
 
     // Rainfall measure.
-    double const rainfall = rainOBJ.getRainfall();
+    double rainfall = rainOBJ.getRainfall();
     printSensorReading(rainfall, "Vase volume", "l");
     Serial.println();
 
     // Barometric pressure / Altitude measures.
-    double const barometricPressure = bmpOBJ.getPressure();
-    double const altitude = bmpOBJ.getAltitude();
+    double barometricPressure = bmpOBJ.getPressure();
+    double altitude = bmpOBJ.getAltitude();
     bmpOBJ.printReadings();
 
     // Send data over to the server.
