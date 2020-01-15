@@ -39,7 +39,7 @@ double HumiditySensor::getHumidity() const {
         int16_t reading = this->readADC();
 
         // Convert reading to percentage and add it up
-        percentageSum += this->mapFloatingPoint(reading, minPercentage, maxPercentage);
+        percentageSum += mapFloatingPoint(reading, minPercentage, maxPercentage);
     }
 
     // Get mean average
@@ -99,7 +99,7 @@ double HumiditySensor::mapFloatingPoint(int16_t const adcReading,
 // calibration purposes.
 //----------------------------------------------------------------------
 void HumiditySensor::printCalibrationReading() const {
-    Serial.print("Humidity (voltage) = ");
+    Serial.print("Humidity = ");
     Serial.print(this->readADC());
-    Serial.println(" (mV)");
+    Serial.println(" (ADC reading)");
 }

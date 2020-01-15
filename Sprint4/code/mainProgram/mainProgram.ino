@@ -11,6 +11,7 @@
 
 //// IMPORT EXTERNAL LIBRARIES ////
 #include "System_Configuration.h"  // System configuration.
+#include "Sensors.h"               // Sensor-related miscellaneous.
 #include "Interruptions.h"         // Wake on Motion & Deep Sleep.
 #include "REST_Server.h"           // REST Server API.
 #include "GPS_A2235.h"             // GPS receiver.
@@ -25,11 +26,11 @@ void setup() {
     // GPS receiver configuration.
     setupGPS();
 
+    // Pressure sensor configuration.
+    bmp280_setup();
+
     // REST server configuration.
     setupHTTP();
-
-    // Pressure sensor configuration.
-    bmpOBJ.setup();
 
     // Interruptions configuration.
     wakeOnMotion_setup();
@@ -41,21 +42,17 @@ void setup() {
 void loop() {
     // Salinity measure.
     double meanSalinity = salinityOBJ.getSalinity();
-    printSensorReading(meanSalinity, "Salinity", "%");
 
     // Humidity measure.
     double meanHumidity = humidityOBJ.getHumidity();
-    printSensorReading(meanHumidity, "Humidity", "%");
-    Serial.println();
 
     // Temperature measure.
-    double temperature = tempOBJ.getTemperature();
-    printSensorReading(temperature, "Temperature", "º C");
-    Serial.println();
+    double temperature_v1 = tempOBJ.getTemperature();
 
     // Light intensity measure.
     unsigned int lightState = lightOBJ.getLuminosityState();
     lightOBJ.printLightState();
+    lightOBJ.printCalibrationReading();
 
     // Rainfall measure.
     double rainfall = rainOBJ.getRainfall();
@@ -63,14 +60,17 @@ void loop() {
     Serial.println();
 
     // Barometric pressure / Altitude measures.
-    double barometricPressure = bmpOBJ.getPressure();
-    double altitude = bmpOBJ.getAltitude();
-    bmpOBJ.printReadings();
+    double barometricPressure = bmp280Pressure();
+    double altitude = bmp280Altitude();
+    double temperature_v2 = bmp280Temperature();
+    bmp280_loop();
 
     // Send data over to the server.
-    loopHTTP(meanSalinity, meanHumidity, temperature,
+    loopHTTP(meanSalinity, meanHumidity, temperature_v1,
              lightState, barometricPressure, altitude,
              rainfall);
+
+    humidityOBJ.printCalibrationReading();
 
     // Geolocation (NMEA messages).
     loopGPS();

@@ -22,6 +22,7 @@ private:
 // MEMBER FUNCTIONS - DECLARATIONS
 private:
     void defaultSampling() const;
+
 public:
     BMP280(Adafruit_BMP280 * bmpAddress);   // Default constructor.
     void setup() const;                     // Set up the sensor (configuration).

@@ -17,27 +17,41 @@ TemperatureSensor::TemperatureSensor(Adafruit_ADS1115 * const adcAddress,
                                      unsigned int const outputPin,
                                      double const slope,
                                      double const dTemp,
-                                     double const yIntercept)
+                                     double const yIntercept,
+                                     unsigned int const numReadings)
     : adcAddress(adcAddress)
     , outputPin(outputPin)
     , slope(slope)
     , dTemp(dTemp)
     , yIntercept(yIntercept)
+    , numReadings(numReadings)
 {}
 
 //----------------------------------------------------------------------
-// Single temperature reading. It returns the current temperature (º C).
+// Mean average temperature reading. It returns the current
+// temperature (º C).
 //----------------------------------------------------------------------
 double TemperatureSensor::getTemperature() const {
-    // Read from ADC
-    int16_t const adcReading = this->readADC();
-
-    // Convert ADC reading to voltage, [0, 4.096] (V) range.
+    // Floating-point for precision (prevent overflow)
+    double voltageSum = 0.0;
+    double averageVoltage = 0.0;
     double newMin = 0.0, newMax = 4096.0;
-    double voltage = this->mapFloatingPoint(adcReading, newMin, newMax) / 1000;
+
+    for(unsigned int i = 0; i < this->numReadings; i++) {
+        // Get new reading
+        int16_t adcReading = this->readADC();
+
+        // Convert ADC reading to voltage, [0, 4.096] (V) range.
+        voltageSum += this->mapFloatingPoint(adcReading, newMin, newMax) / 1000;
+
+        // Wait between readings
+        delay(10);
+    }
+
+    averageVoltage = voltageSum / this->numReadings;
 
     // Convert voltaje value to temperature (º C).
-    double temperature = - this->voltageToTemperature(voltage, slope, dTemp, yIntercept);
+    double temperature = - this->voltageToTemperature(averageVoltage, slope, dTemp, yIntercept);
 
     return temperature;
 }

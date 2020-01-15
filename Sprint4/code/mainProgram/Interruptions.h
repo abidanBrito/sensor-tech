@@ -60,14 +60,14 @@ void I2Cread(uint8_t accAddress, uint8_t memRegister, uint8_t numBytes, uint8_t 
    while (Wire.available()) {
       Data[index++] = Wire.read();
    }
-} // I2Cread()
+}
 
 void I2CwriteByte(uint8_t accAddress, uint8_t memRegister, uint8_t Data) {
    Wire.beginTransmission(accAddress);
    Wire.write(memRegister);
    Wire.write(Data);
    Wire.endTransmission();
-} // I2CwriteByte()
+}
 
 void setupAccelerometer(int accAddress) {
    Serial.println("Setting up the acelerometer...");
@@ -75,7 +75,7 @@ void setupAccelerometer(int accAddress) {
    // Acelerometer setup
    uint8_t reg = 28;
    I2CwriteByte(accAddress, reg, ACC_FULL_SCALE_16_G);
-} // setupAccelerometer()
+}
 
 void accWakeOnMotionConfig(int accAddress) {
    // Wake on Motion configuration (accelerometer)
@@ -92,7 +92,7 @@ void accWakeOnMotionConfig(int accAddress) {
    // Read from intStatus in order to deactivate the interruption
    uint8_t status[1];
    I2Cread(accAddress, 0x3A, 1, status);
-} // accWakeOnMotionConfig()
+}
 
 void interruptionConfig(int interruptionPin) {
    // Set interruption pin (to be monitored)
@@ -100,24 +100,24 @@ void interruptionConfig(int interruptionPin) {
 
    // Link interruption to the pin, function and threshold (trigger upon CHANGE)
    attachInterrupt(digitalPinToInterrupt(interruptionPin), handleInterruption, CHANGE);
-} // interruptionConfig()
+}
 
 void handleInterruption() {
    // Read from intStatus to deactivate the interruption
    uint8_t intStatus[1];
    I2Cread(MPU9250_ADDRESS, 0x3A, 1, intStatus);
-} // handleInterruption()
+}
 
 void wakeOnMotion_setup() {
    Wire.begin();
    interruptionConfig(ACC_INTERRUPT_PIN);
    setupAccelerometer(MPU9250_ADDRESS);
    accWakeOnMotionConfig(MPU9250_ADDRESS);
-} // wakeOnMotion_setup()
+}
 
 void deepSleep_loop(unsigned int sleepTime) {
    Serial.println("Hibernation mode! (10 s)");
    ESP.deepSleep(sleepTime * 1000000);
-} // deepSleep_loop()
+}
 
 #endif

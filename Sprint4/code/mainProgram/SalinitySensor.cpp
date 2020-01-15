@@ -110,7 +110,7 @@ double SalinitySensor::mapFloatingPoint(int16_t const adcReading,
 // calibration purposes.
 //----------------------------------------------------------------------
 void SalinitySensor::printCalibrationReading() const {
-    Serial.print("SALINITY (voltage) = ");
+    Serial.print("SALINITY = ");
     Serial.print(this->readADC());
-    Serial.println(" (mV)");
+    Serial.println(" (ADC reading)");
 }

@@ -29,18 +29,18 @@ unsigned int LuminositySensor::getLuminosityState() const {
 
     // Convert ADC reading to voltage, [0, 4.096] (V) range.
     double newMin = 0.0, newMax = 4096.0;
-    double voltage = this->mapFloatingPoint(adcReading, newMin, newMax);
+    double voltage = - this->mapFloatingPoint(adcReading, newMin, newMax);
 
     // Voltage expressed in mV.
     // Photodiode saturation voltage = 3.7 V.
-    if(voltage <= 30) {             // Dark / covered
+    if(voltage >= 0 && voltage < 4) {             // Dark / covered
         return 0;
     }
-    if (voltage <= 3700) {
-        if(voltage <= 150) {
+    else if (voltage <= 3700) {
+        if(voltage <= 35) {
             return 1;               // Cloudy / in shadow
         }
-        else if (voltage < 1500) {
+        else if (voltage < 350) {
             return 2;               // Cloudless
         }
         else {
@@ -104,7 +104,7 @@ void LuminositySensor::printCalibrationReading() const {
     int16_t adcReading = this->readADC();
 
     // Convert ADC reading to voltage, [0, 4.096] (V) range.
-    double voltage = this->mapFloatingPoint(adcReading, 0, 4096);
+    double voltage = - this->mapFloatingPoint(adcReading, 0, 4096);
 
     Serial.print("Luminosity (voltage) = ");
     Serial.print(voltage);

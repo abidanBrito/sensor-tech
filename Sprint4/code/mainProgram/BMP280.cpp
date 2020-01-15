@@ -13,7 +13,7 @@
 //----------------------------------------------------------------------
 // BMP280 sensor constructor. It initializes all member variables.
 //----------------------------------------------------------------------
-BMP280::BMP280(Adafruit_BMP280 * bmpAddress)
+BMP280::BMP280(Adafruit_BMP280 * const bmpAddress)
     : bmpAddress(bmpAddress)
 {}
 
@@ -22,7 +22,7 @@ BMP280::BMP280(Adafruit_BMP280 * bmpAddress)
 //----------------------------------------------------------------------
 void BMP280::setup() const {
     // Check communication with the sensor
-    if (!(*this->bmpAddress).begin()) {
+    if (!(*(this->bmpAddress)).begin()) {
         Serial.println("BMP280 sensor could not be found!");
         // Stop program flow with infinite loop
         while (1);
@@ -32,22 +32,22 @@ void BMP280::setup() const {
     }
 
     // Default settings from datasheet
-    this->defaultSampling();
+    defaultSampling();
 }
 
 void BMP280::defaultSampling() const {
-    (*this->bmpAddress).setSampling(Adafruit_BMP280::MODE_NORMAL,       // Operating Mode
-                                    Adafruit_BMP280::SAMPLING_X2,       // Temperature oversampling
-                                    Adafruit_BMP280::SAMPLING_X16,      // Pressure oversampling
-                                    Adafruit_BMP280::FILTER_X16,        // Filtering
-                                    Adafruit_BMP280::STANDBY_MS_500);   // Standby time
+    (*(this->bmpAddress)).setSampling(Adafruit_BMP280::MODE_NORMAL,       // Operating Mode
+                                      Adafruit_BMP280::SAMPLING_X2,       // Temperature oversampling
+                                      Adafruit_BMP280::SAMPLING_X16,      // Pressure oversampling
+                                      Adafruit_BMP280::FILTER_X16,        // Filtering
+                                      Adafruit_BMP280::STANDBY_MS_500);   // Standby time
 }
 
 //----------------------------------------------------------------------
 // Ambient temperature reading. It returns the current temperature (º C).
 //----------------------------------------------------------------------
 double BMP280::getTemperature() const {
-    double temperature = (*this->bmpAddress).readTemperature();
+    double temperature = bmpAddress->readTemperature();
 
     return temperature;
 }
@@ -56,7 +56,7 @@ double BMP280::getTemperature() const {
 // Barometric pressure reading. It returns the current pressure (hPa).
 //----------------------------------------------------------------------
 double BMP280::getPressure() const {
-    double pressure = (*this->bmpAddress).readPressure() / 100;
+    double pressure = (bmpAddress->readPressure()) / 100;
 
     return pressure;
 }
@@ -65,8 +65,8 @@ double BMP280::getPressure() const {
 // Altitude reading. It returns the current altitude (m).
 //----------------------------------------------------------------------
 double BMP280::getAltitude() const {
-    double pressure = (*this->bmpAddress).readPressure() / 100;
-    double altitude = (*this->bmpAddress).readAltitude(pressure + 1);
+    double pressure = (bmpAddress->readPressure()) / 100;
+    double altitude = bmpAddress->readAltitude(pressure + 1);
 
     return altitude;
 }
@@ -77,18 +77,18 @@ double BMP280::getAltitude() const {
 void BMP280::printReadings() const {
     // Pressure (hPa)
     Serial.print("Pressure\t=\t");
-    Serial.print((*this->bmpAddress).readPressure() / 100);
+    Serial.print(bmpAddress->readPressure() / 100);
     Serial.println(" (hPa)");
 
     // Altitude (m)
     Serial.print("Altitude\t=\t");
-    double pressure = (*this->bmpAddress).readPressure() / 100;
-    Serial.print((*this->bmpAddress).readAltitude(pressure + 1));
+    double pressure = bmpAddress->readPressure() / 100;
+    Serial.print(bmpAddress->readAltitude(pressure + 1));
     Serial.println(" (m)");
 
     // Temperature (º C)
     Serial.print("Temperature\t=\t");
-    Serial.print((*this->bmpAddress).readTemperature());
+    Serial.print(bmpAddress->readTemperature());
     Serial.println(" (º C)");
 
     // Line break to separate readings

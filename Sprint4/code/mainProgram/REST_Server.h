@@ -21,7 +21,7 @@
 //#define PRINT_HTTP_RESPONSE     // HTTP Server response
 
 // NOTE(abi): Comment / uncomment to connect to UPV / local wireless network.
-//#define WiFi_CONNECTION_UPV
+#define WiFi_CONNECTION_UPV
 
 // NOTE(abi): Pick REST server. Comment the one to be used; uncomment the other.
 #define REST_SERVER_THINGSPEAK  // ThingSpeak
@@ -42,8 +42,8 @@ const char WiFiPSK[] = "1PV.arduino.Toledo";
 
 // External connection
 #else
-const char WiFiSSID[] = "YourSSID";
-const char WiFiPSK[] = "YourPassWord";
+const char WiFiSSID[] = "AbiNET";
+const char WiFiPSK[] = "blablebli";
 #endif
 // --------------------------------------------------------------------------------
 
@@ -222,11 +222,14 @@ void setupHTTP() {
 //// DEBUG DATA ////
 // This function prints out the data pointed by "index" from "data[]" into the
 // Serial Monitor.
-void debugData(const String data[], const unsigned int index, const char* strLiteral) {
+void debugData(const String data[], const unsigned int index,
+               const char* strLiteral, const char* strUnit) {
 #ifdef PRINT_DEBUG_MESSAGES
     Serial.print(strLiteral);
     Serial.print(" = ");
-    Serial.println(data[index]);
+    Serial.print(data[index]);
+    Serial.print(" ");
+    Serial.println(strUnit);
 #endif
 }
 
@@ -235,31 +238,32 @@ void debugData(const String data[], const unsigned int index, const char* strLit
 // sends it to ThingSpeak or Dweet, using either the GET or POST method.
 // It gets called from loop().
 void loopHTTP(double& salinity, double& humidity, double& temperature,
-              unsigned int& luminosity, double& barometricPressure, double& altitude,
+              unsigned int& luminosity,
+              double& barometricPressure, double& altitude,
               double& rainfall) {
     // Up to 8 cells (maximum)
     String data[NUM_FIELDS_TO_SEND + 1];
 
     data[1] = String(salinity);
-    debugData(data, 1, "SALINITY");
+    debugData(data, 1, "SALINITY", "(%)");
 
     data[2] = String(humidity);
-    debugData(data, 2, "HUMIDITY");
+    debugData(data, 2, "HUMIDITY", "(%)");
 
     data[3] = String(temperature);
-    debugData(data, 3, "TEMPERATURE");
+    debugData(data, 3, "TEMPERATURE", "(º C)");
 
     data[4] = String(luminosity);
-    debugData(data, 4, "LUMINOSITY");
+    debugData(data, 4, "LUMINOSITY", "(light state)");
 
     data[5] = String(barometricPressure);
-    debugData(data, 5, "BAROMETRIC PRESSURE");
+    debugData(data, 5, "BAROMETRIC PRESSURE", "(hPa)");
 
     data[6] = String(altitude);
-    debugData(data, 6, "ALTITUDE");
+    debugData(data, 6, "ALTITUDE", "(m)");
 
     data[7] = String(rainfall);
-    debugData(data, 7, "RAINFALL");
+    debugData(data, 7, "RAINFALL", "(l)");
 
     // NOTE(abi): Pick method: GET(ThingSpeak or Dweet) or POST(ThingSpeak).
     HTTPGet(data, NUM_FIELDS_TO_SEND);
