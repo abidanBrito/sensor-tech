@@ -42,7 +42,7 @@ This is a team effort for our first semester class **CDIO**. This project follow
 
 ## SYSTEM DESIGN
 ### Sofware Architecture
-Check the [documentation](Technical_Documentation.pdf) for a detailed breakdown of both the overall design and the dependecies it relies on.
+Check the [documentation](Technical_Documentation.pdf) for a detailed breakdown of both the overall design and the dependencies it relies on.
 
 ### Hardware Architecture
 ![Hardware Architecture Diagram](Sprint4/img/Hardware_Architecture.png)
