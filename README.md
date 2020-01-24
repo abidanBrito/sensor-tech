@@ -61,7 +61,7 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   [x] PCB Design.
 
 ## DOCUMENTATION (under construction)
-It can be found in the form of a PDF file for each and every Sprint, accordingly. Those of previous Sprints may and do, in fact, contain errors (schematics, pins, etc.). Please, refer to the latest Sprint directory for an [up-to-date documentation](Sprint3/Sprint3_Documentación.pdf). 
+It can be found in the form of a PDF file for each and every Sprint, accordingly. Those of previous Sprints may and do, in fact, contain errors (schematics, pins, etc.). Please, refer to the latest Sprint directory for an [up-to-date documentation](Technical_Documentation.pdf). 
 
 ## CREDITS
 | Author                    |
