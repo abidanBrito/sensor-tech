@@ -42,10 +42,11 @@ This is a team effort for our first semester class **CDIO**. This project follow
 
 ## SYSTEM DESIGN
 ### Sofware Architecture
-![Software Architecture Diagram](/Sprint2/img/softwareArchitecture.png)
+Check the [documentation](Technical_Documentation.pdf) for a detailed breakdown of both the overall design and the dependecies it relies on.
 
 ### Hardware Architecture
-![Hardware Architecture Diagram](Sprint2/img/hardwareArchitecture.png)
+![Hardware Architecture Diagram](Hardware_Architecture.png)
+If you want to know how it all works, please refer to the [documentation](Technical_Documentation.pdf) for explanations and schematics.
 
 ## IMPLEMENTED FEATURES
 *   [x] Salinity sensor (electrical conductivity).
@@ -61,7 +62,7 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   [x] PCB Design.
 
 ## DOCUMENTATION (under construction)
-It can be found in the form of a PDF file for each and every Sprint, accordingly. Those of previous Sprints may and do, in fact, contain errors (schematics, pins, etc.). Please, refer to the latest Sprint directory for an [up-to-date documentation](Technical_Documentation.pdf). 
+It can be found in the form of a PDF file for each and every Sprint, accordingly. Those of previous Sprints may and do, in fact, contain errors (schematics, pins, etc.). Please, refer to the [technical documentation](Technical_Documentation.pdf). 
 
 ## CREDITS
 | Author                    |
