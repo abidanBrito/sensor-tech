@@ -46,7 +46,7 @@ Check the [documentation](Technical_Documentation.pdf) (spanish) for a detailed 
 
 ### Hardware Architecture
 ![Hardware Architecture Diagram](Sprint4/img/Hardware_Architecture.png)
-If you want to know how it all works, please refer to the [documentation](Technical_Documentation.pdf) (spanish) for explanations and schematics.
+Refer to the [documentation](Technical_Documentation.pdf) (spanish) for further details and schematics.
 
 ## FUNCTIONALITIES AND FEATURES 
 *   [x] Salinity sensor (electrical conductivity).
