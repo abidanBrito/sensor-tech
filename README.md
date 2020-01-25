@@ -9,7 +9,7 @@ Electronic prototype to **monitor several environmental magnitudes** through the
 1.  [Motivation](#motivation)
 2.  [Technologies and Frameworks](#technologies-and-frameworks)
 3.  [System Design](#system-design)
-4.  [Features](#features)
+4.  [Functionalities and Features](#functionalities-and-features)
 5.  [Documentation](#documentation)
 6.  [Credits](#credits)
 7.  [Acknowledgements](#acknowledgements)
@@ -42,13 +42,13 @@ This is a team effort for our first semester class **CDIO**. This project follow
 
 ## SYSTEM DESIGN
 ### Sofware Architecture
-Check the [documentation](Technical_Documentation.pdf) for a detailed breakdown of both the overall design and the dependencies it relies on.
+Check the [documentation](Technical_Documentation.pdf) (spanish) for a detailed breakdown of both the overall design and the dependencies it relies on.
 
 ### Hardware Architecture
 ![Hardware Architecture Diagram](Sprint4/img/Hardware_Architecture.png)
-If you want to know how it all works, please refer to the [documentation](Technical_Documentation.pdf) for explanations and schematics.
+If you want to know how it all works, please refer to the [documentation](Technical_Documentation.pdf) (spanish) for explanations and schematics.
 
-## IMPLEMENTED FEATURES
+## FUNCTIONALITIES AND FEATURES 
 *   [x] Salinity sensor (electrical conductivity).
 *   [x] Soil Moisture sensor.
 *   [x] Temperature sensor.
@@ -61,8 +61,8 @@ If you want to know how it all works, please refer to the [documentation](Techni
 *   [x] REST server.
 *   [x] PCB Design.
 
-## DOCUMENTATION (under construction)
-It can be found in the form of a PDF file for each and every Sprint, accordingly. Those of previous Sprints may and do, in fact, contain errors (schematics, pins, etc.). Please, refer to the [technical documentation](Technical_Documentation.pdf). 
+## DOCUMENTATION
+It can be found in the form of a PDF file for each and every Sprint, accordingly. Those of previous Sprints may and do, in fact, contain errors (schematics, pins, etc.). Please, refer to the [technical documentation](Technical_Documentation.pdf) (spanish). 
 
 ## CREDITS
 | Author                    |
