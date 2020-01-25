@@ -32,7 +32,7 @@ This is a team effort for our first semester class **CDIO**. This project follow
 *   NTC thermistor.
 *   Resistors.
 
-### REST Servers
+### REST APIs
 *   ThingSpeak - IoT Analytics and integration with MATLAB.
 *   Dweet - Simple messaging and alerts. 
 
