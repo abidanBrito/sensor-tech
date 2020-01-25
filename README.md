@@ -15,7 +15,7 @@ Electronic prototype to **monitor several environmental magnitudes** through sel
 7.  [Acknowledgements](#acknowledgements)
 
 ## MOTIVATION
-This project is a team effort for our first semester class **CDIO**. It aims to optimize the agricultural activity, providing meaningful realtime data.
+This project is a team effort for our first semester class CDIO. It aims to **optimize all agricultural activity**, providing meaningful realtime data.
 
 ## TECHNOLOGIES AND FRAMEWORKS
 ### Electronic Devices and Components
