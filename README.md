@@ -12,7 +12,6 @@ Electronic prototype to **monitor several environmental magnitudes** through sel
 4.  [Functionalities and Features](#functionalities-and-features)
 5.  [Documentation](#documentation)
 6.  [Acknowledgements](#acknowledgements)
-7.  [Credits](#credits)
 
 ## MOTIVATION
 This project is a team effort for our first semester class CDIO. It aims to **optimize all agricultural activity**, providing meaningful realtime data.
@@ -66,11 +65,3 @@ It can be found in the form of a PDF file for each and every Sprint, accordingly
 
 ## ACKNOWLEDGEMENTS
 I would like to express my sincere gratitude to my teacher **Mª Asunción Pérez Pascual** for her invaluable support, feedback and encouragement throughout the development of this project, and to **Universitat Politècnica de València** for providing us with both the knowledge and the tools needed to complete it.
-
-## CREDITS
-| Author                    |
-|---------------------------| 
-| Abidán Brito Clavijo      |
-| Pablo Enguix Llopis       |
-| Luis Belloch Martínez     |
-| Elvira Montagud Hernandis |
