@@ -3,7 +3,7 @@
 
 ![Project_Logo](Sprint2/img/projectLogo_v2.png)
 
-Electronic prototype to **monitor several environmental magnitudes** through self-implemented sensors.
+Electronic prototype to **monitor several environmental magnitudes** through self-implemented sensors. Field data collection at your fingertips!
 
 ## TABLE OF CONTENTS
 1.  [Motivation](#motivation)
@@ -15,7 +15,7 @@ Electronic prototype to **monitor several environmental magnitudes** through sel
 7.  [Acknowledgements](#acknowledgements)
 
 ## MOTIVATION
-This is a team effort for our first semester class **CDIO**. This project follows an **agile software development approach** (SCRUM).
+This project is a team effort for our first semester class **CDIO**. It aims to optimize the agricultural activity, providing meaningful realtime data.
 
 ## TECHNOLOGIES AND FRAMEWORKS
 ### Electronic Devices and Components
