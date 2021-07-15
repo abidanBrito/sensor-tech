@@ -1,5 +1,5 @@
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/afd781d6d3334004acae8f7ddd0c4dc8)](https://www.codacy.com/gh/abidanBrito/sensor-tech/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abidanBrito/sensor-tech&amp;utm_campaign=Badge_Grade)
 ![WIP_Badge](https://img.shields.io/badge/version-1.0-blue.svg)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/afd781d6d3334004acae8f7ddd0c4dc8)](https://www.codacy.com/gh/abidanBrito/sensor-tech/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abidanBrito/sensor-tech&amp;utm_campaign=Badge_Grade)
 
 ![Project_Logo](img/logo.png)
 
