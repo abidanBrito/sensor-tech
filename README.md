@@ -61,7 +61,7 @@ Refer to the [documentation](Technical_Documentation.pdf) (spanish) for further 
 *   \[x] PCB Design.
 
 ## DOCUMENTATION
-It can be found in the form of a PDF file for each and every Sprint, accordingly. Those of previous Sprints may and do, in fact, contain errors (schematics, pins, etc.). Please, refer to the [technical documentation](Technical_Documentation.pdf) (spanish). 
+Please, refer to the [technical documentation](Technical_Documentation.pdf) (spanish) if you have any doubts about the system. It can be found in the form of a PDF file, which goes over everything you need to get you up and running, from schematics and pins to dependencies and sensor calibration.
 
 ## ACKNOWLEDGEMENTS
 I would like to express my sincere gratitude to my teacher **Mª Asunción Pérez Pascual** for her invaluable support, feedback and encouragement throughout the development of this project, and to **Universitat Politècnica de València** for providing us with both the knowledge and the tools needed to complete it.
