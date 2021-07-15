@@ -48,17 +48,17 @@ Check the [documentation](Technical_Documentation.pdf) (spanish) for a detailed 
 Refer to the [documentation](Technical_Documentation.pdf) (spanish) for further details and schematics.
 
 ## FUNCTIONALITIES AND FEATURES 
-*   [x] Salinity sensor (electrical conductivity).
-*   [x] Soil Moisture sensor.
-*   [x] Temperature sensor.
-*   [x] Luminosity sensor.
-*   [x] Barometric pressure and altitute sensor.
-*   [x] Anti-theft system (Wake on Motion).
-*   [x] Hibernation mode (Deep Sleep).
-*   [x] Rain Gauge (experimental).
-*   [x] GPS receiver.
-*   [x] REST server.
-*   [x] PCB Design.
+*   \[x] Salinity sensor (electrical conductivity).
+*   \[x] Soil Moisture sensor.
+*   \[x] Temperature sensor.
+*   \[x] Luminosity sensor.
+*   \[x] Barometric pressure and altitute sensor.
+*   \[x] Anti-theft system (Wake on Motion).
+*   \[x] Hibernation mode (Deep Sleep).
+*   \[x] Rain Gauge (experimental).
+*   \[x] GPS receiver.
+*   \[x] REST server.
+*   \[x] PCB Design.
 
 ## DOCUMENTATION
 It can be found in the form of a PDF file for each and every Sprint, accordingly. Those of previous Sprints may and do, in fact, contain errors (schematics, pins, etc.). Please, refer to the [technical documentation](Technical_Documentation.pdf) (spanish). 
