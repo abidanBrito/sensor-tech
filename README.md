@@ -1,7 +1,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4cbd2f2216e94ec8a36303c0920299aa)](https://www.codacy.com/manual/abidanBrito/CDIO_Agriculture_Sensors?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abidanBrito/CDIO_Agriculture_Sensors&amp;utm_campaign=Badge_Grade)
 ![WIP_Badge](https://img.shields.io/badge/version-1.0-blue.svg)
 
-![Project_Logo](Sprint2/img/projectLogo_v2.png)
+![Project_Logo](img/projectLogo_v2.png)
 
 Electronic prototype to **monitor several environmental magnitudes** through self-implemented sensors. Field data collection at your fingertips!
 
@@ -44,7 +44,7 @@ This project is a team effort for our first semester class CDIO. It aims to **op
 Check the [documentation](Technical_Documentation.pdf) (spanish) for a detailed breakdown of both the overall design and the dependencies it relies on.
 
 ### Hardware Architecture
-![Hardware Architecture Diagram](Sprint4/img/Hardware_Architecture.png)
+![Hardware Architecture Diagram](img/hardware_architecture.png)
 Refer to the [documentation](Technical_Documentation.pdf) (spanish) for further details and schematics.
 
 ## FUNCTIONALITIES AND FEATURES 
