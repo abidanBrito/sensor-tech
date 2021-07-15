@@ -1,4 +1,4 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4cbd2f2216e94ec8a36303c0920299aa)](https://www.codacy.com/manual/abidanBrito/CDIO_Agriculture_Sensors?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abidanBrito/CDIO_Agriculture_Sensors&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/afd781d6d3334004acae8f7ddd0c4dc8)](https://www.codacy.com/gh/abidanBrito/sensor-tech/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abidanBrito/sensor-tech&amp;utm_campaign=Badge_Grade)
 ![WIP_Badge](https://img.shields.io/badge/version-1.0-blue.svg)
 
 ![Project_Logo](img/projectLogo_v2.png)
